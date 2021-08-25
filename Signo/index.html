@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style type="text/css">
+  .center {
+  margin: auto;
+  width: 60%;
+  border: 5px solid #000;
+  padding: 10px;
+}
+</style>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Signo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Limpar Campos... (F5) <!-- <span class="sr-only">(current)</span> --></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="Signos/agua.html">Água</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="Signos/ar.html">Ar</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="Signos/fogo.html">Fogo</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="Signos/terra.html">Terra</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<br>
+<br>
+<!-- <form class="center"> -->
+<div class="container">
+  <div class="form-group">
+    <label>Nome</label>
+    <input type="text" class="form-control" id="Nome" placeholder="Insira seu nome">
+  </div>
+  <div class="form-group">
+    <label>Dia de Nascimento:</label>
+    <input type="number" min="1" max="31" class="form-control" id="Dia" placeholder="DD">
+  </div>
+  <div class="form-group">
+    <label>Mês de Nascimento:</label>
+    <input type="number" min="1" max="12" class="form-control" id="Mes" placeholder="MM">
+  </div>
+  <div class="form-group">
+    <label>Ano de Nascimento:</label>
+    <input type="number" class="form-control" id="AnoNascimento" placeholder="AAAA">
+    <small id="Message" class="form-text text-muted"></small>
+  </div>
+
+  <button type="button" class="btn btn-primary" onclick="Program()">Resultado...</button>
+<!-- </form> -->
+</div>
+
+<script>
+function Program(){
+  var MesNome;
+  var GrupoSigno;
+  var UserSigno;
+
+  var Nome = document.getElementById("Nome").value;
+  var Dia = document.getElementById("Dia").value;
+  var Mes = document.getElementById("Mes").value;
+  var Ano = document.getElementById("AnoNascimento").value;
+  var MyMessage = document.getElementById("Message");
+
+  if(Dia > 31){
+    MyMessage.innerHTML = ">> Verifique o dia do seu nascimento";
+  }else{
+    // Janeiro
+    if(Mes == 1){
+      MesNome = "Janeiro";
+      if(Dia >= 21){
+        
+        UserSigno = "Aquário"
+        GrupoSigno = "aquariano"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Capricornio";
+        GrupoSigno = "capricorniano";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+    // Fevereiro
+    if(Mes == 2){
+      MesNome = "Fevereiro";
+      if(Dia >= 20){
+        
+        UserSigno = "Peixes"
+        GrupoSigno = "pisciano"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Aquário";
+        GrupoSigno = "aquariano";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+    // Março
+    if(Mes == 3){
+      MesNome = "Março";
+      if(Dia >= 21){
+        
+        UserSigno = "Áries"
+        GrupoSigno = "ariano"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Peixes";
+        GrupoSigno = "pisciano";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+    // Abril
+    if(Mes == 4){
+      MesNome = "Abril";
+      if(Dia >= 21){
+        
+        UserSigno = "Touro"
+        GrupoSigno = "taurino"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Áries";
+        GrupoSigno = "ariano";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+    // Maio
+    if(Mes == 5){
+      MesNome = "Maio";
+      if(Dia >= 21){
+        
+        UserSigno = "Gêmeos"
+        GrupoSigno = "geminiano"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Touro";
+        GrupoSigno = "taurino";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+    // Junho
+    if(Mes == 6){
+      MesNome = "Junho";
+      if(Dia >= 21){
+        
+        UserSigno = "Câncer"
+        GrupoSigno = "canceriano"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Gêmeos";
+        GrupoSigno = "geminiano";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+    // Julho
+    if(Mes == 7){
+      MesNome = "Julho";
+      if(Dia >= 22){
+        
+        UserSigno = "Leão"
+        GrupoSigno = "leonino"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Câncer";
+        GrupoSigno = "canceriano";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+    // Agosto
+    if(Mes == 8){
+      MesNome = "Agosto";
+      if(Dia >= 22){
+        
+        UserSigno = "Virgem"
+        GrupoSigno = "virginiano"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Leão";
+        GrupoSigno = "leonino";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+    // Setembro
+    if(Mes == 9){
+      MesNome = "Setembro";
+      if(Dia >= 23){
+        
+        UserSigno = "Libra"
+        GrupoSigno = "libriano"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Virgem";
+        GrupoSigno = "virginiano";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+    // Outubro
+    if(Mes == 10){
+      MesNome = "Outubro";
+      if(Dia >= 23){
+        
+        UserSigno = "Escorpião"
+        GrupoSigno = "escorpiano"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Libra";
+        GrupoSigno = "libriano";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+    // Novembro
+    if(Mes == 11){
+      MesNome = "Novembro";
+      if(Dia >= 22){
+        
+        UserSigno = "Sagitário"
+        GrupoSigno = "sagitariano"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Escorpião";
+        GrupoSigno = "escorpiano";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+    // Dezembro
+    if(Mes == 12){
+      MesNome = "Dezembro";
+      if(Dia >= 22){
+        
+        UserSigno = "Capricórnio"
+        GrupoSigno = "capricorniano"
+  
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }else{
+
+        UserSigno = "Sagitário";
+        GrupoSigno = "sagitariano";
+        
+        var FinalMessage = ">> " + Nome + ", nascido no dia " + Dia + " de " + MesNome + " de " + Ano + ", é " + GrupoSigno;
+        MyMessage.innerHTML = FinalMessage;
+
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
