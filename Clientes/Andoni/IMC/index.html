@@ -19,7 +19,7 @@
 </style>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="IMC.html">Andoni</a>
+  <a class="navbar-brand" href="index.html">Andoni</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,7 +27,7 @@
     <ul class="navbar-nav">
       
       <li class="nav-item">
-        <a class="nav-link" href="IMC.html">IMC</a>
+        <a class="nav-link" href="index.html">IMC</a>
       </li>
 
       <!-- <li class="nav-item">
@@ -48,22 +48,21 @@
 
 <br>
 
-<!-- <form class="center"> -->
 <div class="container">
   <div class="form-group">
     
     <label>Peso (Kgs)</label>
-    <input type="text" class="form-control" id="MyPeso" placeholder="Insira um número">
+    <input type="number" min="0" class="form-control" id="MyPeso" placeholder="Insira um número">
 
     <br>
     
     <label>Altura (M)</label>
-    <input type="text" class="form-control" id="MyAltura" placeholder="Insira um número">
+    <input type="number" min="0" class="form-control" id="MyAltura" placeholder="Insira um número">
     
     <small id="demo" class="form-text text-muted"></small>
   </div>
   <button type="button" class="btn btn-primary" onclick="myFunction()">Verificar...</button>
-<!-- </form> -->
+
 </div>
 
 <script>
