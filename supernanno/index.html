@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SuperNanno — Nano, but modern.</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar-custom">
+  <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2">
+    <a class="navbar-brand-logo text-decoration-none" href="#">
+      Super<span>Nanno</span>
+    </a>
+    <div class="d-flex align-items-center gap-1 flex-wrap">
+      <a class="nav-link-custom" href="#features">Features</a>
+      <a class="nav-link-custom" href="#shortcuts">Shortcuts</a>
+      <a class="nav-link-custom" href="#cli">CLI</a>
+      <a class="nav-link-custom" href="#config">Config</a>
+      <a class="nav-link-custom" href="#architecture">Architecture</a>
+      <a class="nav-link-custom" href="#install">Install</a>
+      <a class="nav-link-custom nav-pill-btn" href="#screenshots">Screenshots</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 fade-in">
+        <div class="hero-badge">✦ Terminal Text Editor · v0.5.0 · Python · Textual</div>
+        <h1 class="hero-title">
+          <span class="accent">Super</span>Nanno<br/>
+        </h1>
+        <p style="font-family:var(--font-head);font-size:1.2rem;color:var(--muted);margin-bottom:18px;font-weight:600;letter-spacing:-0.5px;">
+          Nano, but modern. With UI, syntax highlighting, and a real developer workflow.
+        </p>
+        <p class="hero-subtitle">
+          A modern terminal text editor built on <strong style="color:var(--text)">Textual</strong> and <strong style="color:var(--text)">Tree-sitter</strong>.
+          Modular architecture with event-driven design, state management, dedicated services, and structured JSON logging — all within the terminal.
+        </p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="#install" class="btn-hero-primary">
+            <i class="fa fa-download me-2"></i>Install
+          </a>
+          <a href="#features" class="btn-hero-secondary">
+            Explore Features →
+          </a>
+        </div>
+        <div class="mt-4 d-flex gap-3 flex-wrap">
+          <span class="tag-pill"><i class="fa fa-code me-1"></i> Python 3.12+</span>
+          <span class="tag-pill">Textual 8.2.3</span>
+          <span class="tag-pill">Tree-sitter 0.25.2</span>
+          <span class="tag-pill">16 Languages</span>
+          <span class="tag-pill">BSD-3-Clause</span>
+        </div>
+      </div>
+      <div class="col-lg-6 fade-in" style="animation-delay:.15s">
+        <!-- <div class="terminal-mock">
+          <div class="terminal-titlebar">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yel"></div>
+            <div class="dot dot-grn"></div>
+            <div class="terminal-filename">app_context.py — SuperNanno v0.5.0</div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-sidebar">
+              <div class="t-sidebar-title">Explorer</div>
+              <div class="t-file"><i class="fa fa-folder fa-fw"></i>app.py</div>
+              <div class="t-file"><i class="fa fa-folder fa-fw"></i>core/</div>
+              <div class="t-file ps-4 active"><i class="fa fa-file-code fa-fw"></i>app_context.py</div>
+              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>editor.py</div>
+              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>file_manager.py</div>
+              <div class="t-file"><i class="fa fa-folder fa-fw"></i>services/</div>
+              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>diagnostic_service.py</div>
+              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>report_service.py</div>
+              <div class="t-file"><i class="fa fa-folder fa-fw"></i>search/</div>
+              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>engine.py</div>
+              <div class="t-file"><i class="fa fa-file fa-fw"></i>.supernannorc</div>
+            </div>
+            <div class="terminal-editor">
+              <div class="t-line"><span class="t-linenum">1</span><span class="t-code t-cm"># services/app_context.py</span></div>
+              <div class="t-line"><span class="t-linenum">2</span><span class="t-code"></span></div>
+              <div class="t-line"><span class="t-linenum">3</span><span class="t-code"><span class="t-kw">class</span> <span class="t-fn">AppContext</span>:</span></div>
+              <div class="t-line"><span class="t-linenum">4</span><span class="t-code">    <span class="t-cm"># Central state facade</span></span></div>
+              <div class="t-line"><span class="t-linenum">5</span><span class="t-code">    <span class="t-kw">def</span> <span class="t-fn">__init__</span>(<span class="t-kw">self</span>, app):</span></div>
+              <div class="t-line"><span class="t-linenum">6</span><span class="t-code">        <span class="t-kw">self</span>.app = app</span></div>
+              <div class="t-line"><span class="t-linenum">7</span><span class="t-code">        <span class="t-kw">self</span>.status = <span class="t-fn">StatusService</span>(<span class="t-kw">self</span>)</span></div>
+              <div class="t-line"><span class="t-linenum">8</span><span class="t-code">        <span class="t-kw">self</span>.diagnostics = <span class="t-fn">DiagnosticService</span>(<span class="t-kw">self</span>)</span></div>
+              <div class="t-line"><span class="t-linenum">9</span><span class="t-code">        <span class="t-kw">self</span>.report  = <span class="t-fn">ReportService</span>(<span class="t-kw">self</span>)</span></div>
+              <div class="t-line"><span class="t-linenum">10</span><span class="t-code">        <span class="t-kw">self</span>.backup_enabled = <span class="t-kw">False</span><span class="t-cursor"></span></span></div>
+            </div>
+          </div>
+          <div class="terminal-statusbar">
+            app_context.py <span>|</span> python <span>|</span> UTF-8 <span>|</span> LF <span>|</span> Ln 10, Col 34 <span>|</span> 847 chars
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section id="screenshots" class="screenshot-section">
+  <div class="container">
+    <div class="section-label">In Action</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Project Screenshots</h2>
+    <p class="section-desc">
+      Add real images of the editor in action. Click any placeholder to replace it with your project screenshot.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-md-8">
+        <div class="screenshot-placeholder" id="ss1" onclick="triggerImageUpload('ss1', 'img1')">
+          <input type="file" id="img1" accept="image/*" style="display:none" onchange="loadImage(event,'ss1')"/>
+          <img src="" alt=""/>
+          <div class="ph-content">
+            <div class="ph-icon"><i class="fa fa-display"></i></div>
+            <div class="ph-title">Main Editor — Overview</div>
+            <div class="ph-hint">Click to add image</div>
+            <div class="ph-path">/screenshots/editor_main.png</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex flex-column gap-4">
+        <div class="screenshot-placeholder" id="ss2" onclick="triggerImageUpload('ss2', 'img2')">
+          <input type="file" id="img2" accept="image/*" style="display:none" onchange="loadImage(event,'ss2')"/>
+          <img src="" alt=""/>
+          <div class="ph-content">
+            <div class="ph-icon"><i class="fa fa-search"></i></div>
+            <div class="ph-title">Search + Replace (CTRL+F)</div>
+            <div class="ph-hint">Click to add</div>
+            <div class="ph-path">/screenshots/search.png</div>
+          </div>
+        </div>
+        <div class="screenshot-placeholder" id="ss3" onclick="triggerImageUpload('ss3', 'img3')">
+          <input type="file" id="img3" accept="image/*" style="display:none" onchange="loadImage(event,'ss3')"/>
+          <img src="" alt=""/>
+          <div class="ph-content">
+            <div class="ph-icon"><i class="fa fa-folder-tree"></i></div>
+            <div class="ph-title">Sidebar Explorer</div>
+            <div class="ph-hint">Click to add</div>
+            <div class="ph-path">/screenshots/sidebar.png</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="screenshot-placeholder" id="ss4" onclick="triggerImageUpload('ss4', 'img4')">
+          <input type="file" id="img4" accept="image/*" style="display:none" onchange="loadImage(event,'ss4')"/>
+          <img src="" alt=""/>
+          <div class="ph-content">
+            <div class="ph-icon"><i class="fa fa-palette"></i></div>
+            <div class="ph-title">Syntax Highlighting</div>
+            <div class="ph-hint">Click to add</div>
+            <div class="ph-path">/screenshots/syntax.png</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="screenshot-placeholder" id="ss5" onclick="triggerImageUpload('ss5', 'img5')">
+          <input type="file" id="img5" accept="image/*" style="display:none" onchange="loadImage(event,'ss5')"/>
+          <img src="" alt=""/>
+          <div class="ph-content">
+            <div class="ph-icon"><i class="fa fa-bars-progress"></i></div>
+            <div class="ph-title">Status Bar</div>
+            <div class="ph-hint">Click to add</div>
+            <div class="ph-path">/screenshots/statusbar.png</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="screenshot-placeholder" id="ss6" onclick="triggerImageUpload('ss6', 'img6')">
+          <input type="file" id="img6" accept="image/*" style="display:none" onchange="loadImage(event,'ss6')"/>
+          <img src="" alt=""/>
+          <div class="ph-content">
+            <div class="ph-icon"><i class="fa fa-terminal"></i></div>
+            <div class="ph-title">Settings Screen (F1)</div>
+            <div class="ph-hint">Click to add</div>
+            <div class="ph-path">/screenshots/settings.png</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="section-label">Features</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Everything you need in the terminal</h2>
+    <p class="section-desc">
+      SuperNanno is built with a modular, event-driven architecture powered by services and robust state management. 
+      Every feature is implemented with comprehensive resilience, structured logging, and intelligent recovery mechanisms.
+    </p>
+
+    <div class="row g-4">
+      <!-- Core editing -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa fa-pen-to-square"></i></div>
+          <div class="feature-title">Editor Core (TextArea)</div>
+          <div class="feature-desc">Full-featured text editor based on Textual's <code>TextArea</code> widget. Advanced cursor support, text selection, smooth scrolling, current line highlighting, and configurable <code>cursor_style: block</code>.</div>
+        </div>
+      </div>
+      <!-- Syntax -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon purple"><i class="fa fa-palette"></i></div>
+          <div class="feature-title">Syntax Highlighting</div>
+          <div class="feature-desc">High-performance highlighting powered by <strong>Tree-sitter</strong> with intelligent fallback to <strong>Pygments</strong>. Automatic language detection by file extension using an internal <code>language_map</code>. Supports 16 languages.</div>
+        </div>
+      </div>
+      <!-- File Manager -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon gold"><i class="fa fa-folder-open"></i></div>
+          <div class="feature-title">Robust File Manager</div>
+          <div class="feature-desc"><code>FileManager</code> with atomic writes (write-then-rename via <code>.tmp</code>), intelligent encoding fallbacks, resilient backup systems, and comprehensive handling of filesystem operations.</div>
+        </div>
+      </div>
+      <!-- Search Engine -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon blue"><i class="fa fa-magnifying-glass"></i></div>
+          <div class="feature-title">Strategic Search Engine</div>
+          <div class="feature-desc">Advanced search architecture using the Strategy Pattern: <code>SearchEngine</code> + <code>SearchRegistry</code> + <code>SearchStrategy</code>. Supports literal, case-sensitive, and regex queries. Individual and global replace with smooth match navigation.</div>
+        </div>
+      </div>
+      <!-- Save & Save As -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa fa-floppy-disk"></i></div>
+          <div class="feature-title">Save, Save As &amp; Read-Only</div>
+          <div class="feature-desc">Reliable save operations (<code>CTRL+S</code>) with atomic writes. Inline Save As with path input. Read-only mode (<code>-v/--view</code>). Real-time dirty state detection and automatic directory tree refresh.</div>
+        </div>
+      </div>
+      <!-- Session Restore -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon purple"><i class="fa fa-rotate-left"></i></div>
+          <div class="feature-title">Session Manager</div>
+          <div class="feature-desc"><code>SessionManager</code> with atomic JSON persistence, recent files history (last 10), automatic restoration of the last session, and intelligent backup of corrupted session files.</div>
+        </div>
+      </div>
+      <!-- Error Service -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon red"><i class="fa fa-triangle-exclamation"></i></div>
+          <div class="feature-title">Diagnostic Service &amp; Correlation IDs</div>
+          <div class="feature-desc"><code>DiagnosticService</code> assigns unique <code>correlation_id</code> (8 hex chars) to operations. Automatic categorization and MD5 fingerprinting for precise observability and issue deduplication.</div>
+        </div>
+      </div>
+      <!-- Issue Service -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon gold"><i class="fa fa-bug"></i></div>
+          <div class="feature-title">Report Service — Direct Feedback</div>
+          <div class="feature-desc">Press <code>CTRL+X</code> to generate a comprehensive diagnostic report and open a GitHub issue directly from the editor. Includes editor state, readable logs, and a bundled ZIP for streamlined contribution.</div>
+        </div>
+      </div>
+      <!-- Config Watcher -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa fa-eye"></i></div>
+          <div class="feature-title">Async Config Watcher</div>
+          <div class="feature-desc">Asynchronous worker that monitors <code>.supernannorc</code> and applies changes in real-time without restart. Exponential backoff with graceful degradation for maximum stability.</div>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon blue"><i class="fa fa-folder-tree"></i></div>
+          <div class="feature-title">Sidebar File Explorer</div>
+          <div class="feature-desc"><code>DirectoryTree</code> integrated into the sidebar. Navigate the filesystem, open files with a click, toggle with <code>CTRL+B</code>. Configurable width and root directory with automatic refresh.</div>
+        </div>
+      </div>
+      <!-- Structured Logging -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon purple"><i class="fa fa-list-ul"></i></div>
+          <div class="feature-title">Structured JSON Logging</div>
+          <div class="feature-desc"><code>StructuredLogger</code> produces rich JSON entries with ISO timestamps, correlation IDs, context, and editor state. Daily log rotation with best-effort reliability that never impacts editor stability.</div>
+        </div>
+      </div>
+      <!-- Backup -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon gold"><i class="fa fa-file-export"></i></div>
+          <div class="feature-title">Backup &amp; Recovery</div>
+          <div class="feature-desc">Automatic pre-save backups via <code>-B/--backup</code> or <code>set backup</code>. Configurable backup directory. Non-blocking operation ensures primary save performance is never affected.</div>
+        </div>
+      </div>
+      <!-- Unsaved protection -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon red"><i class="fa fa-shield-halved"></i></div>
+          <div class="feature-title">Data Loss Protection</div>
+          <div class="feature-desc">Proactive <code>check_dirty_before</code> system prevents destructive actions on unsaved changes. Double confirmation for quit with clear status bar guidance and preserved pending actions.</div>
+        </div>
+      </div>
+      <!-- Status Bar -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon blue"><i class="fa fa-chart-bar"></i></div>
+          <div class="feature-title">Intelligent Status Bar</div>
+          <div class="feature-desc"><code>StatusService</code> with five visual levels, persistent message locking, deduplication, and automatic reset. Displays file info, language, encoding, EOL, cursor position, and document metrics.</div>
+        </div>
+      </div>
+      <!-- Cursor Watcher -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa fa-crosshairs"></i></div>
+          <div class="feature-title">Async Cursor Watcher</div>
+          <div class="feature-desc">Dedicated asynchronous worker tracks cursor position for real-time status updates. Adaptive polling with intelligent backoff ensures smooth performance and stability.</div>
+        </div>
+      </div>
+      <!-- Settings Screen -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon purple"><i class="fa fa-gear"></i></div>
+          <div class="feature-title">Settings Screen (F1)</div>
+          <div class="feature-desc">Dedicated <code>SettingsScreen</code> with clean grid layout. Supports session restore, auto-save, line numbers and more. Changes saved safely through <code>ConfigManager</code> with per-field validation.</div>
+        </div>
+      </div>
+      <!-- Insert File -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon gold"><i class="fa fa-file-import"></i></div>
+          <div class="feature-title">Insert File at Cursor (CTRL+R)</div>
+          <div class="feature-desc">Insert content from another file at the exact cursor position. Replaces selection if active. Full encoding support with automatic fallbacks and clear success feedback.</div>
+        </div>
+      </div>
+      <!-- Signature -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa fa-signature"></i></div>
+          <div class="feature-title">Signature System</div>
+          <div class="feature-desc">Automatic file header insertion powered by <code>config.json</code>. Configurable fields including author, dates, copyright, and disclaimers. Fully toggleable per file type.</div>
+        </div>
+      </div>
+      <!-- Word Wrap / Auto Indent -->
+      <div class="col-md-6 col-lg-4">
+        <div class="feature-card">
+          <div class="feature-icon blue"><i class="fa fa-align-left"></i></div>
+          <div class="feature-title">Word Wrap &amp; Auto Indent</div>
+          <div class="feature-desc">Configurable word wrap, intelligent auto-indent, and flexible tab behavior. Adjustable tab size and indent type (spaces or tabs) for precise workflow control.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATUS BAR SHOWCASE -->
+<section style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-label">Status Bar</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">5 Visual Status Levels</h2>
+    <p class="section-desc">
+      The <code>StatusService</code> provides rich visual feedback with message persistence, deduplication, and configurable auto-reset.
+    </p>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="status-demo st-normal"><div class="dot2 st-dot-normal"></div><span>(Editor): main.py | python | UTF-8 | LF | Ln 42, Col 8 | 1.2k chars</span></div>
+        <div class="status-demo st-success"><div class="dot2 st-dot-success"></div><span>(File): Saved "app_context.py"</span></div>
+        <div class="status-demo st-info"><div class="dot2 st-dot-info"></div><span>(Session): Restored "handlers/file.py"</span></div>
+        <div class="status-demo st-warning"><div class="dot2 st-dot-warn"></div><span>(Editor): Unsaved changes — press again to confirm</span></div>
+        <div class="status-demo st-error"><div class="dot2 st-dot-error"></div><span>[a3f2b1c9] Operation completed with diagnostic info</span></div>
+      </div>
+      <div class="col-lg-6">
+        <div style="color:var(--muted);font-size:0.78rem;margin-bottom:16px">StatusService Flow:</div>
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div>
+            <div class="flow-title">Direct Calls</div>
+            <div class="flow-desc"><code>ctx.status.success("(File): Saved")</code> — typed message with automatic 2s timeout</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div>
+            <div class="flow-title">Deduplication</div>
+            <div class="flow-desc">Identical messages are intelligently skipped to reduce visual noise</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div>
+            <div class="flow-title">Persistent Locking</div>
+            <div class="flow-desc"><code>ctx.status.persist("(Search): Find mode")</code> — locks state until explicitly cleared</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div>
+            <div class="flow-title">Async Auto-reset</div>
+            <div class="flow-desc">Background worker restores default state after configured delay</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEYBOARD SHORTCUTS -->
+<section id="shortcuts" class="shortcuts-section">
+  <div class="container">
+    <div class="section-label">Keyboard Shortcuts</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Control at your fingertips</h2>
+    <p class="section-desc">All shortcuts defined in <code>ui/bindings.py</code> and registered through Textual's <code>BINDINGS</code> system.</p>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <h5 class="mb-3" style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px">File &amp; Editor</h5>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">CTRL</span><span class="key-plus">+</span><span class="key">N</span></kbd-custom>
+          <span class="shortcut-label">New file</span>
+          <span class="shortcut-desc">action_new_file → handlers/file.new()</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">CTRL</span><span class="key-plus">+</span><span class="key">O</span></kbd-custom>
+          <span class="shortcut-label">Open file</span>
+          <span class="shortcut-desc">Opens path input for quick navigation</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">CTRL</span><span class="key-plus">+</span><span class="key">R</span></kbd-custom>
+          <span class="shortcut-label">Insert file at cursor</span>
+          <span class="shortcut-desc">action_read_file → handlers/file.read()</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">CTRL</span><span class="key-plus">+</span><span class="key">S</span></kbd-custom>
+          <span class="shortcut-label">Save file</span>
+          <span class="shortcut-desc">action_save → atomic write with optional backup</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">CTRL</span><span class="key-plus">+</span><span class="key">Q</span></kbd-custom>
+          <span class="shortcut-label">Quit</span>
+          <span class="shortcut-desc">action_quit with smart unsaved changes protection</span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h5 class="mb-3" style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px">Search, UI &amp; System</h5>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">CTRL</span><span class="key-plus">+</span><span class="key">F</span></kbd-custom>
+          <span class="shortcut-label">Search in file</span>
+          <span class="shortcut-desc">action_search → ctx.set_state(SearchState())</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">CTRL</span><span class="key-plus">+</span><span class="key">B</span></kbd-custom>
+          <span class="shortcut-label">Toggle Sidebar</span>
+          <span class="shortcut-desc">action_show_hide_sidebar → toggle_sidebar(ctx)</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">CTRL</span><span class="key-plus">+</span><span class="key">X</span></kbd-custom>
+          <span class="shortcut-label">Generate Report</span>
+          <span class="shortcut-desc">action_report_issue → ctx.report.open_report()</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">F1</span></kbd-custom>
+          <span class="shortcut-label">Open Settings</span>
+          <span class="shortcut-desc">action_show_settings → push_screen(SettingsScreen)</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">ESC</span></kbd-custom>
+          <span class="shortcut-label">Cancel / Close panel</span>
+          <span class="shortcut-desc">Closes search, path input or active state</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-2">
+      <div class="col-lg-6">
+        <h5 class="mb-3" style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px">Search: Navigation &amp; Replace</h5>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">Enter</span></kbd-custom>
+          <span class="shortcut-label">Next match</span>
+          <span class="shortcut-desc">state.next_match(ctx)</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">Shift</span><span class="key-plus">+</span><span class="key">Enter</span></kbd-custom>
+          <span class="shortcut-label">Previous match</span>
+          <span class="shortcut-desc">state.prev_match(ctx)</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">↓</span></kbd-custom>
+          <span class="shortcut-label">Enter Replace mode</span>
+          <span class="shortcut-desc">Shows replace input in SearchBar</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">↑</span></kbd-custom>
+          <span class="shortcut-label">Return to Find mode</span>
+          <span class="shortcut-desc">Hides replace input</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">CTRL</span><span class="key-plus">+</span><span class="key">H</span></kbd-custom>
+          <span class="shortcut-label">Replace All</span>
+          <span class="shortcut-desc">state.replace_all(ctx)</span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h5 class="mb-3" style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px">Settings Screen (F1)</h5>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">CTRL</span><span class="key-plus">+</span><span class="key">S</span></kbd-custom>
+          <span class="shortcut-label">Save Settings</span>
+          <span class="shortcut-desc">action_save in SettingsScreen</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd-custom><span class="key">ESC</span></kbd-custom>
+          <span class="shortcut-label">Close Settings</span>
+          <span class="shortcut-desc">action_dismiss → returns to editor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLI ARGUMENTS -->
+<section id="cli">
+  <div class="container">
+    <div class="section-label">Command Line Interface</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Complete CLI Arguments</h2>
+    <p class="section-desc">
+      Full parser in <code>cli/parser.py</code> · Models in <code>cli/models.py</code> · Constants in <code>cli/constants.py</code>.
+      Compatible with original nano syntax.
+    </p>
+
+    <div class="cli-block mb-4">
+      <div class="cli-header">Full Usage</div>
+      <div class="cli-body">
+        <div class="cli-usage">
+          <span style="color:var(--accent2)">$</span> supernanno <span class="dim">[OPTIONS]</span> <span class="dim">[[+LINE[,COLUMN] | +/SEARCH]</span> <span class="dim">FILE]</span>
+        </div>
+        <div style="color:var(--muted);font-size:0.78rem;margin-top:6px">All arguments are optional. Without arguments, opens a blank editor (or restores session if enabled).</div>
+      </div>
+    </div>
+
+    <div class="cli-block">
+      <div class="cli-header">Available Options — CLIArgs (cli/models.py) + cli/constants.py</div>
+      <div class="cli-body p-0">
+        <table class="cli-args-table">
+          <tr>
+            <td style="width:160px"><span class="cli-arg-name">FILE</span></td>
+            <td><span class="cli-arg-type">str | None</span></td>
+            <td>
+              <div class="cli-arg-desc">Path to the file to open on startup. Relative or absolute.</div>
+              <div class="cli-arg-example">$ supernanno my_file.py</div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">+LINE</span></td>
+            <td><span class="cli-arg-type">int | None</span></td>
+            <td>
+              <div class="cli-arg-desc">Positions cursor at the specified line on open. Inspired by nano syntax.</div>
+              <div class="cli-arg-example">$ supernanno +25 main.py</div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">+LINE,COL</span></td>
+            <td><span class="cli-arg-type">int, int</span></td>
+            <td>
+              <div class="cli-arg-desc">Positions cursor at specific line and column. Safe parsing with sensible fallbacks.</div>
+              <div class="cli-arg-example">$ supernanno +25,8 main.py</div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">+/SEARCH</span></td>
+            <td><span class="cli-arg-type">str | None</span></td>
+            <td>
+              <div class="cli-arg-desc">Opens file and initiates search for the term automatically.</div>
+              <div class="cli-arg-example">$ supernanno +/TODO app.py</div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">-v / --view</span></td>
+            <td><span class="cli-arg-type">bool</span></td>
+            <td>
+              <div class="cli-arg-desc">Opens in read-only mode (<code>ctx.read_only = True</code>).</div>
+              <div class="cli-arg-example">$ supernanno -v config.json</div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">-B / --backup</span></td>
+            <td><span class="cli-arg-type">bool</span></td>
+            <td>
+              <div class="cli-arg-desc">Enables automatic backups before each save.</div>
+              <div class="cli-arg-example">$ supernanno -B file.py</div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">-C &lt;dir&gt; / --backupdir</span></td>
+            <td><span class="cli-arg-type">str | None</span></td>
+            <td>
+              <div class="cli-arg-desc">Sets backup directory. Supports <code>~/</code> expansion.</div>
+              <div class="cli-arg-example">$ supernanno -B -C ~/Backups/ file.py</div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">-h / --help</span></td>
+            <td><span class="cli-arg-type">bool</span></td>
+            <td>
+              <div class="cli-arg-desc">Displays complete help text and exits.</div>
+              <div class="cli-arg-example">$ supernanno --help</div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">-V / --version</span></td>
+            <td><span class="cli-arg-type">bool</span></td>
+            <td>
+              <div class="cli-arg-desc">Displays version and exits.</div>
+              <div class="cli-arg-example">$ supernanno --version</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-3">
+      <div class="col-12">
+        <div class="install-block">
+          <button class="copy-btn" onclick="copyText(this, 'supernanno +/TODO my_project.py')">copy</button>
+          <div><span class="prompt">$</span><span class="cmd"> supernanno</span><span class="cmd-comment">                       # opens blank (restores session if enabled)</span></div>
+          <div><span class="prompt">$</span><span class="cmd"> supernanno file.txt</span><span class="cmd-comment">             # opens file directly</span></div>
+          <div><span class="prompt">$</span><span class="cmd"> supernanno +42 app.py</span><span class="cmd-comment">              # opens at line 42</span></div>
+          <div><span class="prompt">$</span><span class="cmd"> supernanno +42,10 app.py</span><span class="cmd-comment">           # opens at line 42, column 10</span></div>
+          <div><span class="prompt">$</span><span class="cmd"> supernanno +/TODO app.py</span><span class="cmd-comment">           # opens and searches for "TODO"</span></div>
+          <div><span class="prompt">$</span><span class="cmd"> supernanno -v config.json</span><span class="cmd-comment">          # read-only mode</span></div>
+          <div><span class="prompt">$</span><span class="cmd"> supernanno -B -C ~/bak/ main.py</span><span class="cmd-comment">    # backup to ~/bak/ before saving</span></div>
+          <div><span class="prompt">$</span><span class="cmd"> supernanno --version</span><span class="cmd-comment">               # show version</span></div>
+          <div><span class="prompt">$</span><span class="cmd"> supernanno --help</span><span class="cmd-comment">                  # show help</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIG .supernannorc -->
+<section id="config" class="config-section">
+  <div class="container">
+    <div class="section-label">Configuration</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">File <code style="font-size:inherit">.supernannorc</code></h2>
+    <p class="section-desc">
+      The <code>.supernannorc</code> file in your project root defines editor preferences.
+      Parsed by <code>services/rc_parser.py</code> with smart encoding fallbacks.
+      Monitored in real-time by the asynchronous Config Watcher.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-lg-5">
+        <div style="margin-bottom:16px;color:var(--muted);font-size:0.78rem">Current <code>.supernannorc</code> content:</div>
+        <div class="rc-file-block">
+          <div class="rc-comment"># SuperNanno configuration</div>
+          <br/>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">backup</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">backupdir</span> <span class="rc-val-str">~/.config/Bisneto/SuperNanno/Backup</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">configwatcher</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">configwatcherinterval</span> <span class="rc-val-num">1</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">indenttype</span> <span class="rc-val-str">spaces</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">operatingdir</span> <span class="rc-val-str">~/</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">pathdisplay</span> <span class="rc-val-str">full</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">restoresession</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">sidebar</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">sidebarwidth</span> <span class="rc-val-num">35</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">tabbehavior</span> <span class="rc-val-str">indent</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">tabsize</span> <span class="rc-val-num">4</span></div>
+          <br/>
+          <div class="rc-comment"># To disable an option:</div>
+          <div><span class="rc-cmd">unset</span> <span class="rc-key">backup</span></div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="config-card">
+          <div class="config-header">
+            <div class="config-header-title">Complete Reference — ConfigApplier</div>
+            <div class="config-header-badge">.supernannorc</div>
+          </div>
+          <table class="config-table">
+            <tr>
+              <td><span class="config-key">backup</span></td>
+              <td><span class="config-val">flag (bool)</span></td>
+              <td><span class="config-desc">Enables automatic backup before saving. Creates <code>.bak</code> in <code>backupdir</code>.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">backupdir</span></td>
+              <td><span class="config-val">~/path/</span></td>
+              <td><span class="config-desc">Directory for backups. Supports <code>~/</code>. Default: <code>~/.config/Bisneto/SuperNanno/Backup</code>.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">configwatcher</span></td>
+              <td><span class="config-val">flag (bool)</span></td>
+              <td><span class="config-desc">Monitors <code>.supernannorc</code> and applies changes live.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">configwatcherinterval</span></td>
+              <td><span class="config-val">int (seconds)</span></td>
+              <td><span class="config-desc">Interval between config watcher checks. Minimum: 1s.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">indenttype</span></td>
+              <td><span class="config-val">spaces | tabs</span></td>
+              <td><span class="config-desc">Indentation type applied to editor.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">operatingdir</span></td>
+              <td><span class="config-val">~/path/</span></td>
+              <td><span class="config-desc">Root directory for sidebar. Ignored if file opened via CLI.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">pathdisplay</span></td>
+              <td><span class="config-val">full | name</span></td>
+              <td><span class="config-desc">Controls path display in status bar: full path or filename only.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">restoresession</span></td>
+              <td><span class="config-val">flag (bool)</span></td>
+              <td><span class="config-desc">Automatically restores last session on startup.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">sidebar</span></td>
+              <td><span class="config-val">flag (bool)</span></td>
+              <td><span class="config-desc">Controls sidebar visibility on startup.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">sidebarwidth</span></td>
+              <td><span class="config-val">int (20–80)</span></td>
+              <td><span class="config-desc">Sidebar width in columns. Clamped between 20 and 80.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">tabbehavior</span></td>
+              <td><span class="config-val">indent | ...</span></td>
+              <td><span class="config-desc">Tab key behavior in editor.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">tabsize</span></td>
+              <td><span class="config-val">int</span></td>
+              <td><span class="config-desc">Tab/indent width. Default: 4.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">debug</span></td>
+              <td><span class="config-val">flag (bool)</span></td>
+              <td><span class="config-desc">Enables debug output in StatusService.</span></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="config-card mt-3">
+          <div class="config-header">
+            <div class="config-header-title">config.json — Additional Settings</div>
+            <div class="config-header-badge">JSON</div>
+          </div>
+          <table class="config-table">
+            <tr>
+              <td><span class="config-key">auto_save</span></td>
+              <td><span class="config-val">false</span></td>
+              <td><span class="config-desc">Periodic auto-save (interval controlled by <code>auto_save_interval</code>).</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">highlight_current_line</span></td>
+              <td><span class="config-val">true</span></td>
+              <td><span class="config-desc">Visual highlight for the current cursor line.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">mouse_support</span></td>
+              <td><span class="config-val">true</span></td>
+              <td><span class="config-desc">Enables mouse support in Textual.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">smooth_scrolling</span></td>
+              <td><span class="config-val">true</span></td>
+              <td><span class="config-desc">Animated scrolling in the editor.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">trim_trailing_whitespace</span></td>
+              <td><span class="config-val">true</span></td>
+              <td><span class="config-desc">Automatically trims trailing whitespace on save.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">highlight_all_matches</span></td>
+              <td><span class="config-val">true</span></td>
+              <td><span class="config-desc">Highlights all search matches in the document.</span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section id="architecture" class="arch-section">
+  <div class="container">
+    <div class="section-label">Architecture</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Module Structure</h2>
+    <p class="section-desc">
+      SuperNanno follows clean layer separation: app → handlers → services → core. 
+      Each module has a single responsibility and communicates through the central <code>AppContext</code>.
+    </p>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent)"><i class="fa fa-rocket"></i> app.py</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> SuperNanno(App) <span class="module-file-desc">main application</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> BINDINGS <span class="module-file-desc">registered shortcuts</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> action_* <span class="module-file-desc">9 actions</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> on_* events <span class="module-file-desc">6 event handlers</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> __watch_config__ <span class="module-file-desc">async worker</span></div>
+          <div style="color:var(--muted);font-size:0.74rem;margin-top:10px">Entry point. Coordinates all subsystems via AppContext.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent2)"><i class="fa fa-layer-group"></i> core/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> __version__.py <span class="module-file-desc">v0.5.0</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> editor.py <span class="module-file-desc">EditorState</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> file_manager.py <span class="module-file-desc">FileManager</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> status.py <span class="module-file-desc">StatusService</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> logger.py <span class="module-file-desc">Logger facade</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> structured_logger.py <span class="module-file-desc">JSON logger</span></div>
+          <div style="color:var(--muted);font-size:0.74rem;margin-top:10px">Core business logic. Independent of Textual UI layer.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent3)"><i class="fa fa-gears"></i> services/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> app_context.py <span class="module-file-desc">central facade</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> config_manager.py <span class="module-file-desc">config.json</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> config_applier.py <span class="module-file-desc">applies rc</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> diagnostic_service.py <span class="module-file-desc">correlation IDs</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> report_service.py <span class="module-file-desc">GitHub reports</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> log_service.py <span class="module-file-desc">logging API</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> rc_parser.py <span class="module-file-desc">parser rc</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> session_manager.py <span class="module-file-desc">JSON session</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> paths.py <span class="module-file-desc">platformdirs</span></div>
+          <div style="color:var(--muted);font-size:0.74rem;margin-top:10px">Service layer. AppContext provides unified access to all services.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--info)"><i class="fa fa-hand-pointer"></i> handlers/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> __init__.py <span class="module-file-desc">public exports</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> file.py <span class="module-file-desc">new/open/load/read/save</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> toggle_sidebar.py <span class="module-file-desc">toggle visibility</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> quit.py <span class="module-file-desc">quit with dirty check</span></div>
+          <div style="color:var(--muted);font-size:0.74rem;margin-top:10px">User action logic. Receives context and executes operations.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--success)"><i class="fa fa-bolt"></i> events/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> button_pressed.py <span class="module-file-desc">next/prev/replace</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> cursor_watcher.py <span class="module-file-desc">async worker</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> directory_tree_selected.py <span class="module-file-desc">sidebar click</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> input_changed.py <span class="module-file-desc">search input</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> input_submitted.py <span class="module-file-desc">path/open</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> key.py <span class="module-file-desc">key events</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> list_view_selected.py <span class="module-file-desc">list navigation</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> mount.py <span class="module-file-desc">on_mount</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> text_area_changed.py <span class="module-file-desc">dirty/stats</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> unmount.py <span class="module-file-desc">shutdown</span></div>
+          <div style="color:var(--muted);font-size:0.74rem;margin-top:10px">Textual event handlers, each in its own focused module.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent)"><i class="fa fa-magnifying-glass"></i> search/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> controller.py <span class="module-file-desc">SearchController</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> engine.py <span class="module-file-desc">SearchEngine</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> models.py <span class="module-file-desc">SearchQuery/Result</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> registry.py <span class="module-file-desc">SearchRegistry</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> strategies.py <span class="module-file-desc">Strategy Pattern</span></div>
+          <div style="color:var(--muted);font-size:0.74rem;margin-top:10px">Extensible search subsystem using Strategy Pattern.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent2)"><i class="fa fa-desktop"></i> ui/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> bindings.py <span class="module-file-desc">BINDINGS + WELCOME</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> layout.py <span class="module-file-desc">create_layout()</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> search_bar.py <span class="module-file-desc">SearchBar widget</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> startup_view.py <span class="module-file-desc">StartupView</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> settings/screen.py <span class="module-file-desc">SettingsScreen</span></div>
+          <div style="color:var(--muted);font-size:0.74rem;margin-top:10px">Textual UI components. Layout assembled in <code>create_layout()</code>.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent3)"><i class="fa fa-terminal"></i> cli/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> models.py <span class="module-file-desc">CLIArgs dataclass</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> parser.py <span class="module-file-desc">parse_cli_args()</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> constants.py <span class="module-file-desc">VERSION/HELP_TEXT</span></div>
+          <div style="color:var(--muted);font-size:0.74rem;margin-top:10px">Pure Python CLI parser. CLIArgs is a comprehensive dataclass.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--danger)"><i class="fa fa-circle-half-stroke"></i> states/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> base.py <span class="module-file-desc">BaseState</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> search.py <span class="module-file-desc">SearchState</span></div>
+          <div style="color:var(--muted);font-size:0.74rem;margin-top:10px">State machine for managing editor modes (normal, search, replace, etc.).</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--muted)"><i class="fa fa-paintbrush"></i> style.tcss</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> $primary: #7c84ec <span class="module-file-desc">primary color</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> $accent: #454990 <span class="module-file-desc">accent color</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> $background: #1F1F1F <span class="module-file-desc">background</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> status classes <span class="module-file-desc">success/warn/info/error</span></div>
+          <div style="color:var(--muted);font-size:0.74rem;margin-top:10px">Textual CSS (.tcss). Defines palette, layout and all widget styles.</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--info)"><i class="fa fa-flask"></i> tests/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> test_report_service.py <span class="module-file-desc">pytest unit tests</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> TestDiagnosticBundle <span class="module-file-desc">ZIP bundle</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> TestReportService <span class="module-file-desc">report flow</span></div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> TestDiagnosticContext <span class="module-file-desc">log excerpt</span></div>
+          <div style="color:var(--muted);font-size:0.74rem;margin-top:10px">UI-independent tests. Run with: <code>python -m pytest tests/ -v</code>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYNTAX LANGUAGES -->
+<section>
+  <div class="container">
+    <div class="section-label">Supported Languages</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Syntax Highlighting via Tree-sitter</h2>
+    <p class="section-desc">
+      SuperNanno uses Tree-sitter for precise AST-based parsing and highlighting. 
+      Automatic detection by file extension via internal <code>language_map</code>. Smart fallback to <strong>Pygments</strong> (<code>guess_lexer()</code>) when needed.
+    </p>
+    <div class="mt-2">
+      <span class="dep-badge">Python <span class="ver">.py</span></span>
+      <span class="dep-badge">JavaScript <span class="ver">.js</span></span>
+      <span class="dep-badge">TypeScript <span class="ver">.ts</span></span>
+      <span class="dep-badge">Bash <span class="ver">.sh</span></span>
+      <span class="dep-badge">CSS <span class="ver">.css</span></span>
+      <span class="dep-badge">HTML <span class="ver">.html</span></span>
+      <span class="dep-badge">Go <span class="ver">.go</span></span>
+      <span class="dep-badge">Java <span class="ver">.java</span></span>
+      <span class="dep-badge">Rust <span class="ver">.rs</span></span>
+      <span class="dep-badge">SQL <span class="ver">.sql</span></span>
+      <span class="dep-badge">JSON <span class="ver">.json</span></span>
+      <span class="dep-badge">TOML <span class="ver">.toml</span></span>
+      <span class="dep-badge">YAML <span class="ver">.yaml/.yml</span></span>
+      <span class="dep-badge">Markdown <span class="ver">.md</span></span>
+      <span class="dep-badge">XML <span class="ver">.xml</span></span>
+      <span class="dep-badge">Regex <span class="ver">—</span></span>
+      <span class="dep-badge">C <span class="ver">.c</span></span>
+      <span class="dep-badge">C++ <span class="ver">.cpp</span></span>
+      <span class="dep-badge">C# <span class="ver">.cs</span></span>
+    </div>
+    <div class="mt-4" style="color:var(--muted);font-size:0.8rem;">
+      Languages detected by extension in <code>app_context.py → set_language()</code>. 
+      When Tree-sitter parser is unavailable, <code>pygments.lexers.guess_lexer()</code> automatically analyzes file content.
+    </div>
+  </div>
+</section>
+
+<!-- INSTALL -->
+<section id="install" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-label">Installation</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Get Started</h2>
+    <p class="section-desc">
+      Set up your development environment with the included <code>dev.sh</code> script, or install via PyPI (coming soon).
+    </p>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <h5 style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px">
+          Via PyPI (coming soon)
+        </h5>
+        <div class="install-block">
+          <button class="copy-btn" onclick="copyText(this, 'pip install supernanno')">copy</button>
+          <div><span class="prompt">$</span><span class="cmd"> pip install supernanno</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h5 style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px">
+          Development (dev.sh)
+        </h5>
+        <div class="install-block">
+          <button class="copy-btn" onclick="copyText(this, 'git clone https://github.com/hbisneto/SuperNanno\ncd SuperNanno\nbash dev.sh\npython app.py')">copy</button>
+          <div><span class="prompt">$</span><span class="cmd"> git clone https://github.com/hbisneto/SuperNanno</span></div>
+          <div><span class="prompt">$</span><span class="cmd"> cd SuperNanno</span></div>
+          <div><span class="prompt">$</span><span class="cmd"> bash dev.sh</span><span class="cmd-comment"> # creates venv + installs dependencies automatically</span></div>
+          <div><span class="prompt">$</span><span class="cmd"> python app.py</span><span class="cmd-comment"> # starts the editor</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <h5 style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px">
+        What dev.sh does automatically:
+      </h5>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px 16px;font-size:0.78rem;min-width:200px">
+          <div style="color:var(--accent);margin-bottom:4px">① Environment Detection</div>
+          <div style="color:var(--muted)">Shows OS, user and timestamp</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px 16px;font-size:0.78rem;min-width:200px">
+          <div style="color:var(--accent);margin-bottom:4px">② Virtual Environment</div>
+          <div style="color:var(--muted)">Creates <code>venv/</code> if needed</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px 16px;font-size:0.78rem;min-width:200px">
+          <div style="color:var(--accent);margin-bottom:4px">③ Updates pip</div>
+          <div style="color:var(--muted)">Ensures latest pip version</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px 16px;font-size:0.78rem;min-width:200px">
+          <div style="color:var(--accent);margin-bottom:4px">④ Activates venv</div>
+          <div style="color:var(--muted)">source venv/bin/activate</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px 16px;font-size:0.78rem;min-width:200px">
+          <div style="color:var(--accent);margin-bottom:4px">⑤ Installs Dependencies</div>
+          <div style="color:var(--muted)">pip install -r requirements.txt</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h5 style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px">
+        Core Dependencies (requirements.txt)
+      </h5>
+      <div>
+        <span class="dep-badge">textual <span class="ver">8.2.3</span></span>
+        <span class="dep-badge">rich <span class="ver">14.3.3</span></span>
+        <span class="dep-badge">tree-sitter <span class="ver">0.25.2</span></span>
+        <span class="dep-badge">tree-sitter-python <span class="ver">0.25.0</span></span>
+        <span class="dep-badge">tree-sitter-javascript <span class="ver">0.25.0</span></span>
+        <span class="dep-badge">tree-sitter-bash <span class="ver">0.25.1</span></span>
+        <span class="dep-badge">tree-sitter-rust <span class="ver">0.24.0</span></span>
+        <span class="dep-badge">tree-sitter-go <span class="ver">0.25.0</span></span>
+        <span class="dep-badge">tree-sitter-json <span class="ver">0.24.8</span></span>
+        <span class="dep-badge">tree-sitter-yaml <span class="ver">0.7.2</span></span>
+        <span class="dep-badge">tree-sitter-toml <span class="ver">0.7.0</span></span>
+        <span class="dep-badge">tree-sitter-markdown <span class="ver">0.5.1</span></span>
+        <span class="dep-badge">tree-sitter-html <span class="ver">0.23.2</span></span>
+        <span class="dep-badge">tree-sitter-css <span class="ver">0.25.0</span></span>
+        <span class="dep-badge">tree-sitter-java <span class="ver">0.23.5</span></span>
+        <span class="dep-badge">tree-sitter-sql <span class="ver">0.3.11</span></span>
+        <span class="dep-badge">tree-sitter-xml <span class="ver">0.7.0</span></span>
+        <span class="dep-badge">tree-sitter-regex <span class="ver">0.25.0</span></span>
+        <span class="dep-badge">Pygments <span class="ver">2.19.2</span></span>
+        <span class="dep-badge">httpx <span class="ver">0.28.1</span></span>
+        <span class="dep-badge">platformdirs <span class="ver">4.9.4</span></span>
+        <span class="dep-badge">markdown-it-py <span class="ver">4.0.0</span></span>
+        <span class="dep-badge">anyio <span class="ver">4.12.1</span></span>
+        <span class="dep-badge">linkify-it-py <span class="ver">2.1.0</span></span>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h5 style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px">
+        Unit Tests
+      </h5>
+      <div class="install-block">
+        <button class="copy-btn" onclick="copyText(this, 'python -m pytest tests/ -v')">copy</button>
+        <div><span class="prompt">$</span><span class="cmd"> python -m pytest tests/ -v</span><span class="cmd-comment"> # runs all tests</span></div>
+        <div><span class="prompt">$</span><span class="cmd"> python -m pytest tests/test_report_service.py -v</span><span class="cmd-comment"> # tests ReportService</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="footer-brand">SuperNanno</div>
+        <div class="footer-text mt-1">Nano, but modern. With UI, syntax highlighting, and a real developer workflow.</div>
+        <div class="mt-2">
+          <span class="license-badge">BSD-3-Clause License</span>
+          <span class="ms-2" style="color:var(--muted);font-size:0.72rem">© 2026 Heitor Bardemaker A. Bisneto</span>
+        </div>
+        <div class="mt-2" style="color:var(--muted);font-size:0.72rem">v0.5.0 · Python 3.12+ · github.com/hbisneto/SuperNanno</div>
+      </div>
+      <div class="col-md-6 text-md-end mt-3 mt-md-0">
+        <div class="d-flex flex-wrap gap-3 justify-content-md-end">
+          <a href="#features" class="footer-link">Features</a>
+          <a href="#shortcuts" class="footer-link">Shortcuts</a>
+          <a href="#cli" class="footer-link">CLI</a>
+          <a href="#config" class="footer-link">Config</a>
+          <a href="#architecture" class="footer-link">Architecture</a>
+          <a href="#install" class="footer-link">Install</a>
+        </div>
+        <div class="mt-2" style="color:var(--muted);font-size:0.72rem">
+          Built with <span style="color:var(--accent)">Textual 8.2.3</span> · 
+          <span style="color:var(--accent2)">Tree-sitter 0.25.2</span> · 
+          <span style="color:var(--accent3)">Python</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function triggerImageUpload(placeholderId, inputId) {
+    document.getElementById(inputId).click();
+  }
+
+  function loadImage(event, placeholderId) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const ph = document.getElementById(placeholderId);
+      ph.querySelector('img').src = e.target.result;
+      ph.classList.add('has-img');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function copyText(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'copied!';
+      btn.style.color = 'var(--accent)';
+      btn.style.borderColor = 'var(--accent)';
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.style.color = '';
+        btn.style.borderColor = '';
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
