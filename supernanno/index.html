@@ -3,15 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <!-- Open Graph (funciona no Twitter, Facebook, LinkedIn, etc) -->
-  <meta property="og:title" content="SuperNanno — Nano, but modern." />
-  <meta property="og:description" content="A modern terminal text editor built with Textual and Tree-sitter. Syntax highlighting, sidebar, search & replace, and more." />
-  <meta property="og:image" content="https://hbisneto.github.io/supernanno/screenshots/editor_main.png" />
-  <meta property="og:url" content="https://hbisneto.github.io/supernanno/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="SuperNanno" />
-  
   <title>SuperNanno — Nano, but modern.</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
@@ -29,17 +20,99 @@
     <div class="d-flex align-items-center gap-1 flex-wrap">
       <a class="nav-link-custom" href="#screenshots">Screenshots</a>
       <a class="nav-link-custom" href="#features">Features</a>
-      <a class="nav-link-custom" href="#shortcuts">Shortcuts</a>
-      <a class="nav-link-custom" href="#cli">CLI</a>
-      <a class="nav-link-custom" href="#config">Config</a>
-      <a class="nav-link-custom" href="#architecture">Architecture</a>
-      <a class="nav-link-custom" href="#supportedlanguages">Supported Languages</a>
+      <div class="dropdown nav-link-custom">
+          <a
+            class="nav-link-custom dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="true">
+            Docs
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark custom-dropdown">
+            <li>
+              <a class="dropdown-item" href="#status_bar">
+                StatusBar
+              </a>
+            </li>
+            
+            <li>
+              <a class="dropdown-item" href="#shortcuts">
+                Keyboard Shortcuts
+              </a>
+            </li>
+            
+            <li>
+              <a class="dropdown-item" href="#cli">
+                CLI
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#config">
+                Config
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#architecture">
+                Architecture
+              </a>
+            </li>
+            
+            <li>
+              <a class="dropdown-item" href="#syntax">
+                Supported Languages
+              </a>
+            </li>
+            
+            <li>
+              <a class="dropdown-item" href="#install">
+                Installation
+              </a>
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+              <a class="dropdown-item" href="contributing.html">
+                Contributing
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="license.html">
+                LICENSE
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="privacy.html">
+                Privacy
+              </a>
+            </li>
+
+          </ul>
+        </div>
       <a class="nav-link-custom" href="contributing.html">Contributing</a>
+      <a class="nav-link-custom" href="license.html">LICENSE</a>      
       <a class="nav-link-custom" href="privacy.html">Privacy</a>
-      <a class="nav-link-custom nav-pill-btn" href="#install">Install</a>
+      <div class="d-flex align-items-center gap-1 flex-wrap">
+        <a class="nav-link-custom" href="#install">
+          <i class="fa fa-download me-2"></i><span>Install</span>
+        </a>
+        <a class="nav-link-custom nav-pill-btn" href="https://github.com/hbisneto/supernanno" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github" aria-hidden="true" style="margin-right:8px;"></i>
+          <span>Explore Source Code</span>
+        </a>
     </div>
   </div>
 </nav>
+
+
+
+
+<!-- NAVBAR CLOSE -->
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -77,45 +150,6 @@
         </div>
       </div>
       <div class="col-lg-6 fade-in" style="animation-delay:.15s">
-        <!-- <div class="terminal-mock">
-          <div class="terminal-titlebar">
-            <div class="dot dot-red"></div>
-            <div class="dot dot-yel"></div>
-            <div class="dot dot-grn"></div>
-            <div class="terminal-filename">app_context.py — SuperNanno v0.0.23</div>
-          </div>
-          <div class="terminal-body">
-            <div class="terminal-sidebar">
-              <div class="t-sidebar-title">Explorer</div>
-              <div class="t-file"><i class="fa fa-folder fa-fw"></i>app.py</div>
-              <div class="t-file"><i class="fa fa-folder fa-fw"></i>core/</div>
-              <div class="t-file ps-4 active"><i class="fa fa-file-code fa-fw"></i>app_context.py</div>
-              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>editor.py</div>
-              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>file_manager.py</div>
-              <div class="t-file"><i class="fa fa-folder fa-fw"></i>services/</div>
-              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>diagnostic_service.py</div>
-              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>report_service.py</div>
-              <div class="t-file"><i class="fa fa-folder fa-fw"></i>search/</div>
-              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>engine.py</div>
-              <div class="t-file"><i class="fa fa-file fa-fw"></i>.supernannorc</div>
-            </div>
-            <div class="terminal-editor">
-              <div class="t-line"><span class="t-linenum">1</span><span class="t-code t-cm"># services/app_context.py</span></div>
-              <div class="t-line"><span class="t-linenum">2</span><span class="t-code"></span></div>
-              <div class="t-line"><span class="t-linenum">3</span><span class="t-code"><span class="t-kw">class</span> <span class="t-fn">AppContext</span>:</span></div>
-              <div class="t-line"><span class="t-linenum">4</span><span class="t-code">    <span class="t-cm"># Central state facade</span></span></div>
-              <div class="t-line"><span class="t-linenum">5</span><span class="t-code">    <span class="t-kw">def</span> <span class="t-fn">__init__</span>(<span class="t-kw">self</span>, app):</span></div>
-              <div class="t-line"><span class="t-linenum">6</span><span class="t-code">        <span class="t-kw">self</span>.app = app</span></div>
-              <div class="t-line"><span class="t-linenum">7</span><span class="t-code">        <span class="t-kw">self</span>.status = <span class="t-fn">StatusService</span>(<span class="t-kw">self</span>)</span></div>
-              <div class="t-line"><span class="t-linenum">8</span><span class="t-code">        <span class="t-kw">self</span>.diagnostics = <span class="t-fn">DiagnosticService</span>(<span class="t-kw">self</span>)</span></div>
-              <div class="t-line"><span class="t-linenum">9</span><span class="t-code">        <span class="t-kw">self</span>.report  = <span class="t-fn">ReportService</span>(<span class="t-kw">self</span>)</span></div>
-              <div class="t-line"><span class="t-linenum">10</span><span class="t-code">        <span class="t-kw">self</span>.backup_enabled = <span class="t-kw">False</span><span class="t-cursor"></span></span></div>
-            </div>
-          </div>
-          <div class="terminal-statusbar">
-            app_context.py <span>|</span> python <span>|</span> UTF-8 <span>|</span> LF <span>|</span> Ln 10, Col 34 <span>|</span> 847 chars
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
@@ -124,11 +158,11 @@
 <!-- SCREENSHOTS -->
 <!-- ==================== PROJECT SCREENSHOTS ==================== -->
 <section id="screenshots" class="screenshot-section">
-    <div class="container">
-        <span class="section-label">Gallery</span>
-        <h2 class="section-title">Project Screenshots</h2>
+  <div class="container">
+    <div class="section-label">Gallery</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Project Screenshots</h2>
         <p class="section-desc">Visual overview of SuperNanno's main features and interface</p>
-
         <div class="screenshot-grid">
 
             <!-- 1 -->
@@ -191,19 +225,6 @@
                     StatusService with five visual levels, persistent message locking, deduplication, and automatic reset. Displays file info, language, encoding, EOL, cursor position, and document metrics.
                 </p>
             </div>
-
-            <!-- 6 -->
-            <!-- <div class="screenshot-item">
-                <h3>Settings Screen (F1)</h3>
-                <div class="screenshot-placeholder has-img">
-                    <img src="screenshots/project_settings.png" 
-                         alt="Project Settings do SuperNanno">
-                </div>
-                <p class="screenshot-description">
-                    Dedicated SettingsScreen with clean grid layout. Supports session restore, auto-save, line numbers and more. Changes saved safely through ConfigManager with per-field validation.
-                </p>
-            </div> -->
-
         </div>
     </div>
 </section>
@@ -377,7 +398,7 @@
 </section>
 
 <!-- STATUS BAR SHOWCASE -->
-<section style="background:var(--bg2)">
+<section id="status_bar" style="background:var(--bg2)">
   <div class="container">
     <div class="section-label">Status Bar</div>
     <div class="divider-line"></div>
@@ -954,7 +975,7 @@
 </section>
 
 <!-- SYNTAX LANGUAGES -->
-<section id="supportedlanguages">
+<section id="syntax" class="syntax-section">
   <div class="container">
     <div class="section-label">Supported Languages</div>
     <div class="divider-line"></div>
@@ -998,46 +1019,33 @@
         <div class="divider-line"></div>
         <h2 class="section-title">Get Started with SuperNanno</h2>
         <p class="section-desc">
-            Choose the installation method that best fits your workflow. 
-            <strong>We strongly recommend using <code>pipx</code></strong> for a clean, isolated, and easily updatable installation.
+            Install SuperNanno using the included <code>dev.sh</code> script or via <strong>pipx</strong> (recommended for production use).
         </p>
 
         <div class="row g-5">
 
-            <!-- 1. pipx (Recommended) -->
-            <div class="col-lg-12 mb-5">
-                <div class="install-block" style="border-color: var(--accent); background: rgba(0, 229, 176, 0.05);">
-                    <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-                        <span class="tag-pill" style="background:var(--accent); color:var(--bg); font-weight:700;">RECOMMENDED</span>
-                        <h5 style="margin:0; color:var(--accent);">1. pipx install supernanno (Global &amp; Isolated)</h5>
-                    </div>
-                    <button class="copy-btn" onclick="copyText(this, 'pipx install supernanno')">copy</button>
-                    <div><span class="prompt">$</span><span class="cmd"> pipx install supernanno</span></div>
-                    <p style="color:var(--muted); font-size:0.85rem; margin-top:12px;">
-                        Clean, managed, and updatable installation. Best choice for daily use.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 2. install.sh -->
+            <!-- Option 1: pipx (Recommended) -->
             <div class="col-lg-6">
-                <h5 style="color:var(--accent);font-size:0.9rem;margin-bottom:12px;">
-                    <i class="fa fa-file-code"></i> 2. Using install.sh (Stable Version)
+                <h5 style="color:var(--accent);font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px">
+                    <i class="fa fa-rocket"></i> Global Installation (Recommended)
                 </h5>
                 <div class="install-block">
-                    <button class="copy-btn" onclick="copyText(this, 'curl -fsSL https://raw.githubusercontent.com/hbisneto/SuperNanno/main/install.sh -o install.sh && bash install.sh')">copy</button>
-                    <div><span class="prompt">$</span><span class="cmd"> curl -fsSL https://raw.githubusercontent.com/hbisneto/SuperNanno/main/install.sh -o install.sh</span></div>
-                    <div><span class="prompt">$</span><span class="cmd"> bash install.sh</span></div>
+                    <button class="copy-btn" onclick="copyText(this, 'pipx install supernanno')">copy</button>
+                    <div><span class="prompt">$</span><span class="cmd"> pipx install supernanno</span></div>
                 </div>
-                <p style="color:var(--muted);font-size:0.85rem;margin-top:10px;">
-                    Official script that automatically checks/installs <strong>pipx</strong> and installs the stable version.
+                <p class="mt-3" style="color:var(--muted);font-size:0.9rem;">
+                    After installation, you can run:
                 </p>
+                <div class="install-block mt-2">
+                    <div><span class="prompt">$</span><span class="cmd"> supernanno</span></div>
+                    <div><span class="prompt">$</span><span class="cmd"> supernanno myfile.py</span></div>
+                </div>
             </div>
 
-            <!-- 3. dev.sh -->
+            <!-- Option 2: Development -->
             <div class="col-lg-6">
-                <h5 style="color:var(--accent3);font-size:0.9rem;margin-bottom:12px;">
-                    <i class="fa fa-code-branch"></i> 3. Using dev.sh (Development)
+                <h5 style="color:var(--accent);font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px">
+                    <i class="fa fa-code-branch"></i> Development / Local Install
                 </h5>
                 <div class="install-block">
                     <button class="copy-btn" onclick="copyText(this, 'git clone https://github.com/hbisneto/SuperNanno.git\ncd SuperNanno\nbash dev.sh')">copy</button>
@@ -1045,16 +1053,22 @@
                     <div><span class="prompt">$</span><span class="cmd"> cd SuperNanno</span></div>
                     <div><span class="prompt">$</span><span class="cmd"> bash dev.sh</span></div>
                 </div>
-                <p style="color:var(--muted);font-size:0.85rem;margin-top:10px;">
-                    For development or testing the latest changes. The script offers multiple options (stable, editable, etc).
+                <p class="mt-3" style="color:var(--muted);font-size:0.9rem;line-height:1.6;">
+                    The <code>dev.sh</code> script offers multiple installation modes:
                 </p>
+                <ul style="color:var(--muted);font-size:0.88rem;line-height:1.8; padding-left:1.2rem;">
+                    <li><strong>1)</strong> Stable Channel (PyPI) — Recommended</li>
+                    <li><strong>2)</strong> Local Developer Mode (editable install)</li>
+                    <li><strong>3)</strong> Dev Channel (TestPyPI)</li>
+                    <li><strong>4 &amp; 5)</strong> Specific version</li>
+                </ul>
             </div>
 
         </div>
 
         <!-- Useful Commands -->
         <div class="mt-5">
-            <h5 style="color:var(--accent);font-size:0.9rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px">
+            <h5 style="color:var(--accent);font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px">
                 Useful Commands
             </h5>
             <div class="row g-3">
@@ -1070,23 +1084,78 @@
                 </div>
                 <div class="col-md-4">
                     <div class="install-block">
-                        <div><span class="prompt">$</span><span class="cmd"> supernanno my_file.py</span></div>
+                        <div><span class="prompt">$</span><span class="cmd"> supernanno +25 file.py</span></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Configuration Directory -->
+        <!-- Configuration -->
         <div class="mt-5 pt-4 border-top" style="border-color: var(--border) !important;">
-            <h5 style="color:var(--accent);font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px">
-                Configuration Directory
-            </h5>
-            <ul style="color:var(--muted);font-size:0.9rem;">
-                <li><strong>Linux:</strong> <code>~/.config/Bisneto/SuperNanno/</code></li>
-                <li><strong>macOS:</strong> <code>~/Library/Application Support/Bisneto/SuperNanno/</code></li>
-                <li><strong>Windows:</strong> <code>%APPDATA%\Bisneto\SuperNanno\</code></li>
-            </ul>
+          <h5 style="color:var(--accent);font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px">
+                Configuration directory
+          </h5>
+          <ul>
+            <li><strong>Linux:</strong> <code>~/.config/Bisneto/SuperNanno/</code></li>
+            <li><strong>macOS:</strong> <code>~/Library/Application Support/Bisneto/SuperNanno/</code></li>
+            <li><strong>Windows:</strong> <code>%APPDATA%\Bisneto\SuperNanno\</code></li>
+          </ul>
+          <!--<p style="color:var(--muted);font-size:0.92rem;">
+              On Linux: 
+              <code style="background:var(--bg);padding:2px 6px;border-radius:3px;">~/.config/Bisneto/SuperNanno/</code>
+          </p>
+          <p style="color:var(--muted);font-size:0.92rem;">
+              On macOS: 
+              <code style="background:var(--bg);padding:2px 6px;border-radius:3px;">~/.config/Bisneto/SuperNanno/</code>
+          </p>
+          <p style="color:var(--muted);font-size:0.92rem;">
+              On Windows: 
+              <code style="background:var(--bg);padding:2px 6px;border-radius:3px;">~/.config/Bisneto/SuperNanno/</code>
+          </p> -->
         </div>
+
+        <div class="mt-5">
+      <h5 style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px">
+        Core Dependencies (requirements.txt)
+      </h5>
+      <div>
+        <span class="dep-badge">textual <span class="ver">8.2.3</span></span>
+        <span class="dep-badge">rich <span class="ver">14.3.3</span></span>
+        <span class="dep-badge">tree-sitter <span class="ver">0.25.2</span></span>
+        <span class="dep-badge">tree-sitter-python <span class="ver">0.25.0</span></span>
+        <span class="dep-badge">tree-sitter-javascript <span class="ver">0.25.0</span></span>
+        <span class="dep-badge">tree-sitter-bash <span class="ver">0.25.1</span></span>
+        <span class="dep-badge">tree-sitter-rust <span class="ver">0.24.0</span></span>
+        <span class="dep-badge">tree-sitter-go <span class="ver">0.25.0</span></span>
+        <span class="dep-badge">tree-sitter-json <span class="ver">0.24.8</span></span>
+        <span class="dep-badge">tree-sitter-yaml <span class="ver">0.7.2</span></span>
+        <span class="dep-badge">tree-sitter-toml <span class="ver">0.7.0</span></span>
+        <span class="dep-badge">tree-sitter-markdown <span class="ver">0.5.1</span></span>
+        <span class="dep-badge">tree-sitter-html <span class="ver">0.23.2</span></span>
+        <span class="dep-badge">tree-sitter-css <span class="ver">0.25.0</span></span>
+        <span class="dep-badge">tree-sitter-java <span class="ver">0.23.5</span></span>
+        <span class="dep-badge">tree-sitter-sql <span class="ver">0.3.11</span></span>
+        <span class="dep-badge">tree-sitter-xml <span class="ver">0.7.0</span></span>
+        <span class="dep-badge">tree-sitter-regex <span class="ver">0.25.0</span></span>
+        <span class="dep-badge">Pygments <span class="ver">2.19.2</span></span>
+        <span class="dep-badge">httpx <span class="ver">0.28.1</span></span>
+        <span class="dep-badge">platformdirs <span class="ver">4.9.4</span></span>
+        <span class="dep-badge">markdown-it-py <span class="ver">4.0.0</span></span>
+        <span class="dep-badge">anyio <span class="ver">4.12.1</span></span>
+        <span class="dep-badge">linkify-it-py <span class="ver">2.1.0</span></span>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h5 style="color:var(--accent);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px">
+        Unit Tests
+      </h5>
+      <div class="install-block">
+        <button class="copy-btn" onclick="copyText(this, 'python -m pytest tests/ -v')">copy</button>
+        <div><span class="prompt">$</span><span class="cmd"> python -m pytest tests/ -v</span><span class="cmd-comment"> # runs all tests</span></div>
+        <div><span class="prompt">$</span><span class="cmd"> python -m pytest tests/test_report_service.py -v</span><span class="cmd-comment"> # tests ReportService</span></div>
+      </div>
+    </div>
 
     </div>
 </section>
@@ -1156,5 +1225,7 @@
     });
   }
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
