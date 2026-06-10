@@ -20,16 +20,99 @@
     <div class="d-flex align-items-center gap-1 flex-wrap">
       <a class="nav-link-custom" href="#screenshots">Screenshots</a>
       <a class="nav-link-custom" href="#features">Features</a>
-      <a class="nav-link-custom" href="#shortcuts">Shortcuts</a>
-      <a class="nav-link-custom" href="#cli">CLI</a>
-      <a class="nav-link-custom" href="#config">Config</a>
-      <a class="nav-link-custom" href="#architecture">Architecture</a>
+      <div class="dropdown nav-link-custom">
+          <a
+            class="nav-link-custom dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="true">
+            Docs
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark custom-dropdown">
+            <li>
+              <a class="dropdown-item" href="#status_bar">
+                StatusBar
+              </a>
+            </li>
+            
+            <li>
+              <a class="dropdown-item" href="#shortcuts">
+                Keyboard Shortcuts
+              </a>
+            </li>
+            
+            <li>
+              <a class="dropdown-item" href="#cli">
+                CLI
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#config">
+                Config
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="#architecture">
+                Architecture
+              </a>
+            </li>
+            
+            <li>
+              <a class="dropdown-item" href="#syntax">
+                Supported Languages
+              </a>
+            </li>
+            
+            <li>
+              <a class="dropdown-item" href="#install">
+                Installation
+              </a>
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+              <a class="dropdown-item" href="contributing.html">
+                Contributing
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="license.html">
+                LICENSE
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" href="privacy.html">
+                Privacy
+              </a>
+            </li>
+
+          </ul>
+        </div>
       <a class="nav-link-custom" href="contributing.html">Contributing</a>
+      <a class="nav-link-custom" href="license.html">LICENSE</a>      
       <a class="nav-link-custom" href="privacy.html">Privacy</a>
-      <a class="nav-link-custom nav-pill-btn" href="#install">Install</a>
+      <div class="d-flex align-items-center gap-1 flex-wrap">
+        <a class="nav-link-custom" href="#install">
+          <i class="fa fa-download me-2"></i><span>Install</span>
+        </a>
+        <a class="nav-link-custom nav-pill-btn" href="https://github.com/hbisneto/supernanno" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github" aria-hidden="true" style="margin-right:8px;"></i>
+          <span>Explore Source Code</span>
+        </a>
     </div>
   </div>
 </nav>
+
+
+
+
+<!-- NAVBAR CLOSE -->
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -67,45 +150,6 @@
         </div>
       </div>
       <div class="col-lg-6 fade-in" style="animation-delay:.15s">
-        <!-- <div class="terminal-mock">
-          <div class="terminal-titlebar">
-            <div class="dot dot-red"></div>
-            <div class="dot dot-yel"></div>
-            <div class="dot dot-grn"></div>
-            <div class="terminal-filename">app_context.py — SuperNanno v0.0.23</div>
-          </div>
-          <div class="terminal-body">
-            <div class="terminal-sidebar">
-              <div class="t-sidebar-title">Explorer</div>
-              <div class="t-file"><i class="fa fa-folder fa-fw"></i>app.py</div>
-              <div class="t-file"><i class="fa fa-folder fa-fw"></i>core/</div>
-              <div class="t-file ps-4 active"><i class="fa fa-file-code fa-fw"></i>app_context.py</div>
-              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>editor.py</div>
-              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>file_manager.py</div>
-              <div class="t-file"><i class="fa fa-folder fa-fw"></i>services/</div>
-              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>diagnostic_service.py</div>
-              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>report_service.py</div>
-              <div class="t-file"><i class="fa fa-folder fa-fw"></i>search/</div>
-              <div class="t-file ps-4"><i class="fa fa-file-code fa-fw"></i>engine.py</div>
-              <div class="t-file"><i class="fa fa-file fa-fw"></i>.supernannorc</div>
-            </div>
-            <div class="terminal-editor">
-              <div class="t-line"><span class="t-linenum">1</span><span class="t-code t-cm"># services/app_context.py</span></div>
-              <div class="t-line"><span class="t-linenum">2</span><span class="t-code"></span></div>
-              <div class="t-line"><span class="t-linenum">3</span><span class="t-code"><span class="t-kw">class</span> <span class="t-fn">AppContext</span>:</span></div>
-              <div class="t-line"><span class="t-linenum">4</span><span class="t-code">    <span class="t-cm"># Central state facade</span></span></div>
-              <div class="t-line"><span class="t-linenum">5</span><span class="t-code">    <span class="t-kw">def</span> <span class="t-fn">__init__</span>(<span class="t-kw">self</span>, app):</span></div>
-              <div class="t-line"><span class="t-linenum">6</span><span class="t-code">        <span class="t-kw">self</span>.app = app</span></div>
-              <div class="t-line"><span class="t-linenum">7</span><span class="t-code">        <span class="t-kw">self</span>.status = <span class="t-fn">StatusService</span>(<span class="t-kw">self</span>)</span></div>
-              <div class="t-line"><span class="t-linenum">8</span><span class="t-code">        <span class="t-kw">self</span>.diagnostics = <span class="t-fn">DiagnosticService</span>(<span class="t-kw">self</span>)</span></div>
-              <div class="t-line"><span class="t-linenum">9</span><span class="t-code">        <span class="t-kw">self</span>.report  = <span class="t-fn">ReportService</span>(<span class="t-kw">self</span>)</span></div>
-              <div class="t-line"><span class="t-linenum">10</span><span class="t-code">        <span class="t-kw">self</span>.backup_enabled = <span class="t-kw">False</span><span class="t-cursor"></span></span></div>
-            </div>
-          </div>
-          <div class="terminal-statusbar">
-            app_context.py <span>|</span> python <span>|</span> UTF-8 <span>|</span> LF <span>|</span> Ln 10, Col 34 <span>|</span> 847 chars
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
@@ -114,11 +158,11 @@
 <!-- SCREENSHOTS -->
 <!-- ==================== PROJECT SCREENSHOTS ==================== -->
 <section id="screenshots" class="screenshot-section">
-    <div class="container">
-        <span class="section-label">Gallery</span>
-        <h2 class="section-title">Project Screenshots</h2>
+  <div class="container">
+    <div class="section-label">Gallery</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Project Screenshots</h2>
         <p class="section-desc">Visual overview of SuperNanno's main features and interface</p>
-
         <div class="screenshot-grid">
 
             <!-- 1 -->
@@ -181,19 +225,6 @@
                     StatusService with five visual levels, persistent message locking, deduplication, and automatic reset. Displays file info, language, encoding, EOL, cursor position, and document metrics.
                 </p>
             </div>
-
-            <!-- 6 -->
-            <!-- <div class="screenshot-item">
-                <h3>Settings Screen (F1)</h3>
-                <div class="screenshot-placeholder has-img">
-                    <img src="screenshots/project_settings.png" 
-                         alt="Project Settings do SuperNanno">
-                </div>
-                <p class="screenshot-description">
-                    Dedicated SettingsScreen with clean grid layout. Supports session restore, auto-save, line numbers and more. Changes saved safely through ConfigManager with per-field validation.
-                </p>
-            </div> -->
-
         </div>
     </div>
 </section>
@@ -367,7 +398,7 @@
 </section>
 
 <!-- STATUS BAR SHOWCASE -->
-<section style="background:var(--bg2)">
+<section id="status_bar" style="background:var(--bg2)">
   <div class="container">
     <div class="section-label">Status Bar</div>
     <div class="divider-line"></div>
@@ -944,7 +975,7 @@
 </section>
 
 <!-- SYNTAX LANGUAGES -->
-<section>
+<section id="syntax" class="syntax-section">
   <div class="container">
     <div class="section-label">Supported Languages</div>
     <div class="divider-line"></div>
@@ -1194,5 +1225,7 @@
     });
   }
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
