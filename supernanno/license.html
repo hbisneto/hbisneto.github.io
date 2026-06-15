@@ -14,14 +14,21 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar-custom">
-  <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2">
-    <a class="navbar-brand-logo text-decoration-none" href="index.html">
+<nav class="navbar navbar-expand-xl navbar-custom">
+  <div class="container">
+    <a class="navbar-brand-logo text-decoration-none" href="#">
       Super<span>Nanno</span>
     </a>
 
-    <div class="d-flex align-items-center gap-1 flex-wrap">
-      <a class="nav-link-custom nav-pill-btn" href="https://github.com/hbisneto/supernanno" target="_blank" rel="noopener noreferrer">
+    <!-- Toggler -->
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars" style="color: var(--accent); font-size: 1.45rem;"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav ms-auto d-flex align-items-center gap-1">
+        <a class="nav-link-custom nav-pill-btn" href="https://github.com/hbisneto/supernanno" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-github" aria-hidden="true" style="margin-right:8px;"></i>
         <span>Explore Source Code</span>
       </a>
@@ -29,9 +36,11 @@
         <i class="fa-solid fa-house" aria-hidden="true" style="margin-right:8px;"></i>
         <span>Back to Home</span>
       </a>
+      </div>
     </div>
   </div>
 </nav>
+<!-- NAVBAR CLOSE -->
 
 <!-- HERO -->
 <section class="hero" style="min-height: 50vh; padding: 140px 0 80px;">
