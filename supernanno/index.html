@@ -688,6 +688,7 @@
           <div><span class="rc-cmd">set</span> <span class="rc-key">configwatcher</span></div>
           <div><span class="rc-cmd">set</span> <span class="rc-key">configwatcherinterval</span> <span class="rc-val-num">1</span></div>
           <div><span class="rc-cmd">set</span> <span class="rc-key">indenttype</span> <span class="rc-val-str">spaces</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">linenumbers</span></div>
           <div><span class="rc-cmd">set</span> <span class="rc-key">operatingdir</span> <span class="rc-val-str">~/</span></div>
           <div><span class="rc-cmd">set</span> <span class="rc-key">pathdisplay</span> <span class="rc-val-str">full</span></div>
           <div><span class="rc-cmd">set</span> <span class="rc-key">restoresession</span></div>
@@ -697,7 +698,9 @@
           <div><span class="rc-cmd">set</span> <span class="rc-key">tabsize</span> <span class="rc-val-num">4</span></div>
           <br/>
           <div class="rc-comment"># To disable an option:</div>
+          <div><span class="rc-cmd">unset</span> <span class="rc-key">configwatcher</span></div>
           <div><span class="rc-cmd">unset</span> <span class="rc-key">backup</span></div>
+          <div><span class="rc-cmd">unset</span> <span class="rc-key">linenumbers</span></div>
         </div>
       </div>
       <div class="col-lg-7">
@@ -731,6 +734,11 @@
               <td><span class="config-key">indenttype</span></td>
               <td><span class="config-val">spaces | tabs</span></td>
               <td><span class="config-desc">Indentation type applied to editor.</span></td>
+            </tr>
+            <tr>
+              <td><span class="config-key">linenumbers</span></td>
+              <td><span class="config-val">flag (bool)</span></td>
+              <td><span class="config-desc">Displays line numbers in the editor.</span></td>
             </tr>
             <tr>
               <td><span class="config-key">operatingdir</span></td>
