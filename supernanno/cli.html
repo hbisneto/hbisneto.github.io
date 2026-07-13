@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CLI — SuperNanno</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar-custom">
+  <div class="container d-flex align-items-center justify-content-between flex-wrap gap-2">
+    <a class="navbar-brand-logo text-decoration-none" href="index.html">
+      Super<span>Nanno</span>
+    </a>
+    <div class="d-flex align-items-center gap-1 flex-wrap">
+      <a class="nav-link-custom" href="index.html#screenshots">Screenshots</a>
+      <a class="nav-link-custom" href="index.html#features">Features</a>
+      <a class="nav-link-custom" href="statusbar.html">Status Bar</a>
+      <a class="nav-link-custom" href="shortcuts.html">Shortcuts</a>
+      <a class="nav-link-custom active" href="#">CLI</a>
+      <a class="nav-link-custom" href="index.html#config">Config</a>
+      <a class="nav-link-custom" href="index.html#architecture">Architecture</a>
+      <a class="nav-link-custom" href="index.html#install">Install</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="min-height: 70vh; padding-top: 140px;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <div class="hero-badge">✦ Command Line Interface</div>
+        <h1 class="hero-title">Powerful<br>CLI</h1>
+        <p class="hero-subtitle" style="max-width: 520px;">
+          Nano-compatible syntax with modern extensions. 
+          Open files, jump to lines, start searches, enable backups, and more — all from the terminal.
+        </p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="#usage" class="btn-hero-primary">Usage Examples</a>
+          <a href="#options" class="btn-hero-secondary">All Options →</a>
+        </div>
+      </div>
+      <div class="col-lg-5 text-center">
+        <div style="background:var(--bg2); border: 2px dashed var(--border); border-radius: 12px; padding: 40px 20px; font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent);">
+          supernanno +42 main.py -B -C ~/backups/
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USAGE -->
+<section id="usage">
+  <div class="container">
+    <div class="section-label">Command Line</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Basic Usage</h2>
+    <p class="section-desc">Full parser implemented in <code>cli/parser.py</code> + <code>cli/models.py</code></p>
+
+    <div class="cli-block">
+      <div class="cli-header">General Syntax</div>
+      <div class="cli-body">
+        <div class="cli-usage">
+          <span style="color:var(--accent2)">$</span> supernanno <span class="dim">[OPTIONS]</span> <span class="dim">[[+LINE[,COLUMN]] | +/SEARCH]</span> <span class="dim">[FILE]</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-4">
+      <div class="col-md-6">
+        <h5 style="color:var(--accent);">Common Examples</h5>
+        <div class="install-block mb-3">
+          <div><span class="prompt">$</span><span class="cmd"> supernanno</span></div>
+          <div class="cmd-comment"># Open new buffer (or restore session)</div>
+        </div>
+        <div class="install-block mb-3">
+          <div><span class="prompt">$</span><span class="cmd"> supernanno my_file.py</span></div>
+        </div>
+        <div class="install-block mb-3">
+          <div><span class="prompt">$</span><span class="cmd"> supernanno +42 main.py</span></div>
+          <div class="cmd-comment"># Jump to line 42</div>
+        </div>
+        <div class="install-block">
+          <div><span class="prompt">$</span><span class="cmd"> supernanno +/TODO app.py</span></div>
+          <div class="cmd-comment"># Open and search for "TODO"</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h5 style="color:var(--accent);">Advanced Flags</h5>
+        <div class="install-block mb-3">
+          <div><span class="prompt">$</span><span class="cmd"> supernanno -v config.json</span></div>
+          <div class="cmd-comment"># Read-only mode</div>
+        </div>
+        <div class="install-block mb-3">
+          <div><span class="prompt">$</span><span class="cmd"> supernanno -B file.py</span></div>
+          <div class="cmd-comment"># Enable automatic backups</div>
+        </div>
+        <div class="install-block">
+          <div><span class="prompt">$</span><span class="cmd"> supernanno -B -C ~/Backups/ project.py</span></div>
+          <div class="cmd-comment"># Backup to custom directory</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL OPTIONS -->
+<section id="options" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-label">Reference</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">All CLI Options</h2>
+
+    <div class="cli-block">
+      <div class="cli-header">Available Arguments &amp; Flags</div>
+      <div class="cli-body p-0">
+        <table class="cli-args-table">
+          <tr>
+            <td><span class="cli-arg-name">FILE</span></td>
+            <td><span class="cli-arg-type">str | None</span></td>
+            <td>Path to open (relative or absolute)</td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">+LINE</span></td>
+            <td><span class="cli-arg-type">int</span></td>
+            <td>Jump to specific line on startup</td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">+LINE,COL</span></td>
+            <td><span class="cli-arg-type">int,int</span></td>
+            <td>Jump to line and column</td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">+/SEARCH</span></td>
+            <td><span class="cli-arg-type">str</span></td>
+            <td>Open file and start search with term</td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">-v, --view</span></td>
+            <td><span class="cli-arg-type">bool</span></td>
+            <td>Read-only mode</td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">-B, --backup</span></td>
+            <td><span class="cli-arg-type">bool</span></td>
+            <td>Enable automatic .bak backups before save</td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">-C, --backupdir &lt;dir&gt;</span></td>
+            <td><span class="cli-arg-type">str</span></td>
+            <td>Custom backup directory (~ expansion supported)</td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">-h, --help</span></td>
+            <td><span class="cli-arg-type">bool</span></td>
+            <td>Show help and exit</td>
+          </tr>
+          <tr>
+            <td><span class="cli-arg-name">-V, --version</span></td>
+            <td><span class="cli-arg-type">bool</span></td>
+            <td>Show version and exit</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="navbar-brand-logo text-decoration-none" style="font-family: var(--font-head); font-weight: 800; font-size: 1.3rem; color: var(--accent);">Super<span>Nanno</span></div>
+        <div class="footer-text mt-1">Nano, but modern.</div>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <a href="shortcuts.html" class="footer-link">← Shortcuts</a>
+        <a href="index.html#config" class="footer-link ms-3">Config →</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
