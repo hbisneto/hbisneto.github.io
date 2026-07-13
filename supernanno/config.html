@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Configuration — SuperNanno</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-xl navbar-custom">
+  <div class="container">
+    <a class="navbar-brand-logo text-decoration-none" href="index.html">
+      Super<span>Nanno</span>
+    </a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars" style="color: var(--accent); font-size: 1.45rem;"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav ms-auto d-flex align-items-center gap-1">
+        <a class="nav-link-custom" href="index.html#screenshots">Screenshots</a>
+        <a class="nav-link-custom" href="index.html#features">Features</a>
+
+        <div class="dropdown">
+          <a class="nav-link-custom dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Docs
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark custom-dropdown">
+            <li><a class="dropdown-item" href="statusbar.html">Status Bar</a></li>
+            <li><a class="dropdown-item" href="shortcuts.html">Keyboard Shortcuts</a></li>
+            <li><a class="dropdown-item" href="cli.html">CLI</a></li>
+            <li><a class="dropdown-item active" href="#">Configuration</a></li>
+            <li><a class="dropdown-item" href="index.html#architecture">Architecture</a></li>
+            <li><a class="dropdown-item" href="index.html#syntax">Supported Languages</a></li>
+            <li><a class="dropdown-item" href="index.html#install">Installation</a></li>
+          </ul>
+        </div>
+
+        <a class="nav-link-custom" href="contributing.html">Contributing</a>
+        <a class="nav-link-custom" href="license.html">LICENSE</a>
+        <a class="nav-link-custom" href="privacy.html">Privacy</a>
+
+        <a class="nav-link-custom" href="index.html#install">
+          <i class="fa fa-download me-1"></i>Install
+        </a>
+
+        <a class="nav-link-custom nav-pill-btn" href="https://github.com/hbisneto/supernanno" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github me-2"></i>GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="min-height: 70vh; padding-top: 140px;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <div class="hero-badge">✦ Live Configuration</div>
+        <h1 class="hero-title">Config</h1>
+        <p class="hero-subtitle" style="max-width: 520px;">
+          Two-layer system: declarative <code>.supernannorc</code> + structured <code>config.json</code>.<br>
+          Async watcher with live reload. No restart needed.
+        </p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="#rc" class="btn-hero-primary">.supernannorc</a>
+          <a href="#json" class="btn-hero-secondary">config.json →</a>
+        </div>
+      </div>
+      <div class="col-lg-5 text-center">
+        <div style="background:var(--bg2); border: 2px dashed var(--border); border-radius: 12px; padding: 40px 20px; font-family: var(--font-mono);">
+          <span style="color:var(--accent);">set tabsize 4</span><br>
+          <span style="color:var(--muted);">Live • Hot-reload • Persistent</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- .supernannorc -->
+<section id="rc">
+  <div class="container">
+    <div class="section-label">Declarative Config</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title"><code>.supernannorc</code></h2>
+    <p class="section-desc">
+      Simple, Nano-style configuration. Parsed by <code>services/rc_parser.py</code> and applied live by the Async Config Watcher.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-lg-5">
+        <div class="rc-file-block">
+          <div class="rc-comment"># SuperNanno configuration</div>
+          <br/>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">backup</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">backupdir</span> <span class="rc-val-str">~/.config/Bisneto/SuperNanno/Backup</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">configwatcher</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">configwatcherinterval</span> <span class="rc-val-num">1</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">indenttype</span> <span class="rc-val-str">spaces</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">operatingdir</span> <span class="rc-val-str">~/</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">pathdisplay</span> <span class="rc-val-str">full</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">restoresession</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">sidebar</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">sidebarwidth</span> <span class="rc-val-num">35</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">tabbehavior</span> <span class="rc-val-str">indent</span></div>
+          <div><span class="rc-cmd">set</span> <span class="rc-key">tabsize</span> <span class="rc-val-num">4</span></div>
+          <br/>
+          <div class="rc-comment"># Disable option:</div>
+          <div><span class="rc-cmd">unset</span> <span class="rc-key">backup</span></div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="config-card">
+          <div class="config-header">
+            <div class="config-header-title">Supported Options — ConfigApplier</div>
+            <div class="config-header-badge">.supernannorc</div>
+          </div>
+          <table class="config-table">
+            <tr><td><span class="config-key">backup</span></td><td><span class="config-val">flag</span></td><td>Enable automatic backups</td></tr>
+            <tr><td><span class="config-key">backupdir</span></td><td><span class="config-val">~/path/</span></td><td>Backup directory</td></tr>
+            <tr><td><span class="config-key">configwatcher</span></td><td><span class="config-val">flag</span></td><td>Live reload</td></tr>
+            <tr><td><span class="config-key">configwatcherinterval</span></td><td><span class="config-val">int</span></td><td>Check interval (seconds)</td></tr>
+            <tr><td><span class="config-key">indenttype</span></td><td><span class="config-val">spaces | tabs</span></td><td>Indentation style</td></tr>
+            <tr><td><span class="config-key">operatingdir</span></td><td><span class="config-val">~/path/</span></td><td>Sidebar root directory</td></tr>
+            <tr><td><span class="config-key">pathdisplay</span></td><td><span class="config-val">full | name</span></td><td>Status bar path style</td></tr>
+            <tr><td><span class="config-key">restoresession</span></td><td><span class="config-val">flag</span></td><td>Restore last file on launch</td></tr>
+            <tr><td><span class="config-key">sidebar</span></td><td><span class="config-val">flag</span></td><td>Show sidebar on startup</td></tr>
+            <tr><td><span class="config-key">sidebarwidth</span></td><td><span class="config-val">20–80</span></td><td>Sidebar width (columns)</td></tr>
+            <tr><td><span class="config-key">tabsize</span></td><td><span class="config-val">int</span></td><td>Tab width</td></tr>
+            <tr><td><span class="config-key">debug</span></td><td><span class="config-val">flag</span></td><td>Debug mode</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- config.json -->
+<section id="json" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-label">Runtime Config</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title"><code>config.json</code></h2>
+    <p class="section-desc">
+      Full structured settings with live reload support. Located in the platform-specific config directory.
+    </p>
+
+    <div class="config-card">
+      <div class="config-header">
+        <div class="config-header-title">Main Settings</div>
+        <div class="config-header-badge">config.json</div>
+      </div>
+      <table class="config-table">
+        <tr><td><span class="config-key">startup.restore_session</span></td><td><span class="config-val">true</span></td><td>Restore last opened file</td></tr>
+        <tr><td><span class="config-key">editor.tab_size</span></td><td><span class="config-val">4</span></td><td>Tab width</td></tr>
+        <tr><td><span class="config-key">editor.use_spaces</span></td><td><span class="config-val">true</span></td><td>Use spaces instead of tabs</td></tr>
+        <tr><td><span class="config-key">ui.theme</span></td><td><span class="config-val">dark</span></td><td>Color theme</td></tr>
+        <tr><td><span class="config-key">ui.line_numbers</span></td><td><span class="config-val">true</span></td><td>Show line numbers</td></tr>
+        <tr><td><span class="config-key">search.highlight_all_matches</span></td><td><span class="config-val">true</span></td><td>Highlight all search results</td></tr>
+        <tr><td><span class="config-key">files.auto_create_backup</span></td><td><span class="config-val">true</span></td><td>Automatic backups</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Settings Screen -->
+<section>
+  <div class="container">
+    <div class="section-label">UI Settings</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Settings Screen (F1)</h2>
+    <p class="section-desc">
+      Beautiful grid-based UI for editing settings. Changes are saved safely and applied immediately.
+    </p>
+    <div class="feature-card" style="max-width: 700px; margin: 0 auto;">
+      <div class="feature-title">Features</div>
+      <ul style="color:var(--muted); line-height: 1.8; padding-left: 1.2rem;">
+        <li>Grid layout with checkboxes and inputs</li>
+        <li>Real-time preview</li>
+        <li>Validation per field</li>
+        <li>CTRL+S to save • ESC to close</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="navbar-brand-logo text-decoration-none" style="font-family: var(--font-head); font-weight: 800; font-size: 1.3rem; color: var(--accent);">Super<span>Nanno</span></div>
+        <div class="footer-text mt-1">Nano, but modern.</div>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <a href="cli.html" class="footer-link">← CLI</a>
+        <a href="index.html#architecture" class="footer-link ms-3">Architecture →</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

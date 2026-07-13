@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Architecture — SuperNanno</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-xl navbar-custom">
+  <div class="container">
+    <a class="navbar-brand-logo text-decoration-none" href="index.html">
+      Super<span>Nanno</span>
+    </a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars" style="color: var(--accent); font-size: 1.45rem;"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav ms-auto d-flex align-items-center gap-1">
+        <a class="nav-link-custom" href="index.html#screenshots">Screenshots</a>
+        <a class="nav-link-custom" href="index.html#features">Features</a>
+        <a class="nav-link-custom" href="statusbar.html">Status Bar</a>
+        <a class="nav-link-custom" href="shortcuts.html">Shortcuts</a>
+        <a class="nav-link-custom" href="cli.html">CLI</a>
+        <a class="nav-link-custom" href="config.html">Config</a>
+        <a class="nav-link-custom active" href="#">Architecture</a>
+        <a class="nav-link-custom" href="index.html#install">Install</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="min-height: 70vh; padding-top: 140px;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <div class="hero-badge">✦ Clean &amp; Service-Oriented</div>
+        <h1 class="hero-title">Architecture</h1>
+        <p class="hero-subtitle" style="max-width: 520px;">
+          Modular, event-driven and highly maintainable.<br>
+          Clear separation of concerns with <strong>AppContext</strong> as central facade.
+        </p>
+      </div>
+      <div class="col-lg-5 text-center">
+        <div style="background:var(--bg2); border: 2px dashed var(--border); border-radius: 12px; padding: 40px 20px;">
+          <i class="fa fa-layer-group" style="font-size: 4rem; color: var(--accent);"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE STRUCTURE -->
+<section id="modules" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-label">Project Structure</div>
+    <div class="divider-line"></div>
+    <h2 class="section-title">Layered Architecture</h2>
+    <p class="section-desc">
+      SuperNanno follows a clean separation: <strong>UI → Handlers → Services → Core</strong>.<br>
+      All communication flows through the central <code>AppContext</code>.
+    </p>
+
+    <div class="row g-4">
+      <!-- app.py -->
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent)"><i class="fa fa-rocket"></i> app.py</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> SuperNanno(App) — Main entry point</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> BINDINGS — Keyboard shortcuts</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> Action handlers</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> Config Watcher (async)</div>
+        </div>
+      </div>
+
+      <!-- core/ -->
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent2)"><i class="fa fa-layer-group"></i> core/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> editor.py — EditorState</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> file_manager.py — Atomic operations</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> status.py — StatusService</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> logger.py + structured_logger.py</div>
+        </div>
+      </div>
+
+      <!-- services/ -->
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent3)"><i class="fa fa-gears"></i> services/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> app_context.py — Central Facade</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> config_manager.py + rc_parser.py</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> error_service.py + issue_service.py</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> session_manager.py</div>
+        </div>
+      </div>
+
+      <!-- handlers/ -->
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--info)"><i class="fa fa-hand-pointer"></i> handlers/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> file.py — New, Open, Save, Read</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> toggle_sidebar.py</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> quit.py — Dirty check protection</div>
+        </div>
+      </div>
+
+      <!-- events/ -->
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--success)"><i class="fa fa-bolt"></i> events/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> One file per event (key.py, mount.py, etc.)</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> cursor_watcher.py, directory_tree_selected.py...</div>
+        </div>
+      </div>
+
+      <!-- search/ -->
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent)"><i class="fa fa-magnifying-glass"></i> search/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> Strategy Pattern implementation</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> registry.py, strategies.py, engine.py</div>
+        </div>
+      </div>
+
+      <!-- ui/ -->
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent2)"><i class="fa fa-desktop"></i> ui/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> layout.py, bindings.py, search_bar.py</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> settings/screen.py</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> startup_view.py</div>
+        </div>
+      </div>
+
+      <!-- Outros -->
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--accent3)"><i class="fa fa-terminal"></i> cli/</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> parser.py, models.py, constants.py</div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="module-card">
+          <div class="module-title" style="color:var(--muted)"><i class="fa fa-paintbrush"></i> style.tcss</div>
+          <div class="module-file"><i class="fa fa-chevron-right"></i> Modern Textual styling</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="navbar-brand-logo text-decoration-none" style="font-family: var(--font-head); font-weight: 800; font-size: 1.3rem; color: var(--accent);">Super<span>Nanno</span></div>
+        <div class="footer-text mt-1">Nano, but modern.</div>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <a href="config.html" class="footer-link">← Config</a>
+        <a href="index.html" class="footer-link ms-3">Homepage →</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
