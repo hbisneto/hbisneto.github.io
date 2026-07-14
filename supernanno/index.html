@@ -187,7 +187,7 @@
       </div>
       <p class="screenshot-description">
         PathDialog for easy navigation and file selection
-        <!-- Future feature: Remote file systems. -->
+        <!-- TODO: Future feature: Remote file systems. -->
       </p>
     </div>
       </p>
@@ -384,30 +384,34 @@
       <div class="col-lg-6">
         <div style="color:var(--muted);font-size:0.78rem;margin-bottom:16px">StatusService Flow:</div>
         <div class="flow-step">
-          <div class="flow-num">1</div>
           <div>
-            <div class="flow-title">Direct Calls</div>
+            <li>
+              <div class="flow-title">1. Direct Calls</div>
+            </li>
             <div class="flow-desc"><code>ctx.status.success("(File): Saved")</code> — typed message with automatic 2s timeout</div>
           </div>
         </div>
         <div class="flow-step">
-          <div class="flow-num">2</div>
           <div>
-            <div class="flow-title">Deduplication</div>
+            <li>
+              <div class="flow-title">2. Deduplication</div>
+            </li>
             <div class="flow-desc">Identical messages are intelligently skipped to reduce visual noise</div>
           </div>
         </div>
         <div class="flow-step">
-          <div class="flow-num">3</div>
           <div>
-            <div class="flow-title">Persistent Locking</div>
+            <li>
+              <div class="flow-title">3. Persistent Locking</div>
+            </li>
             <div class="flow-desc"><code>ctx.status.persist("(Search): Find mode")</code> — locks state until explicitly cleared</div>
           </div>
         </div>
         <div class="flow-step">
-          <div class="flow-num">4</div>
           <div>
-            <div class="flow-title">Async Auto-reset</div>
+            <li>
+              <div class="flow-title">4. Async Auto-reset</div>
+            </li>
             <div class="flow-desc">Background worker restores default state after configured delay</div>
           </div>
         </div>
