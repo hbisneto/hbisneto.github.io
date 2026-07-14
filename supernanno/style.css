@@ -1,7 +1,6 @@
 /* =============================================================================
-   SuperNanno — Global Stylesheet
-   Redesign: Apple-inspired visual language (HIG-driven), content unchanged.
-   Consolidates styles from: index.html · contributing.html · privacy.html
+   SuperNanno — Global Stylesheet (Dark Theme)
+   Redesign: Apple-inspired visual language (HIG-driven), Dark Mode
    Author: Heitor Bardemaker A. Bisneto
    © 2026
    ============================================================================= */
@@ -10,32 +9,31 @@
 /* ====================== BASE & ROOT ====================== */
 
 :root {
-  /* Neutrals — Apple's light system palette */
-  --bg:        #ffffff;
-  --bg2:       #f5f5f7;
-  --bg3:       #fbfbfd;
-  --surface:   #ffffff;
-  --border:    #d2d2d7;
-  --border-soft: #e8e8ed;
+  /* Dark theme — Modern terminal-inspired with Apple HIG influence */
+  --bg:        #0f0f0f;
+  --bg2:       #1a1a1c;
+  --bg3:       #252528;
+  --surface:   #1f1f23;
+  --border:    #3a3a3e;
+  --border-soft: #2c2c30;
 
   /* Text */
-  --text:      #1d1d1f;
-  --muted:     #6e6e73;
-  --muted2:    #86868b;
+  --text:      #f5f5f7;
+  --muted:     #a1a1a6;
+  --muted2:    #8e8e93;
 
-  /* Single elegant accent for actions */
-  --accent:       #454990;
-  --accent-hover: #7c84ec;
-  --accent-soft:  rgba(69, 73, 144, 0.08);
-  --accent-soft-border: rgba(69, 73, 144, 0.18);
+  /* Single elegant accent for actions — vibrant purple for dark */
+  --accent:       #7c84ec;
+  --accent-hover: #a5a9f0;
+  --accent-soft:  rgba(124, 132, 236, 0.15);
+  --accent-soft-border: rgba(124, 132, 236, 0.3);
 
-  /* Kept for compatibility with existing markup — mapped to restrained,
-     desaturated variants so the palette still reads as "one family" */
-  --accent2:   #515154;
-  --accent3:   #8a8a8e;
-  --danger:    #d70015;
-  --success:   #1d7a3d;
-  --info:      #0071e3;
+  /* Kept for compatibility — adjusted for dark */
+  --accent2:   #a8a8ac;
+  --accent3:   #6e6e73;
+  --danger:    #ff453a;
+  --success:   #30d158;
+  --info:      #64d2ff;
 
   --font-head: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
@@ -45,10 +43,10 @@
   --radius-md: 16px;
   --radius-lg: 26px;
 
-  --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
-  --shadow-md: 0 12px 32px rgba(0,0,0,0.07);
-  --shadow-lg: 0 24px 70px rgba(0,0,0,0.11);
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-sm: 0 2px 10px rgba(0,0,0,0.35);
+  --shadow-md: 0 12px 32px rgba(0,0,0,0.4);
+  --shadow-lg: 0 24px 70px rgba(0,0,0,0.5);
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -106,7 +104,7 @@ code {
 /* ====================== NAVBAR =========================== */
 
 .navbar-custom {
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(15, 15, 15, 0.85);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid var(--border-soft);
@@ -119,7 +117,7 @@ code {
 
 .navbar-custom.is-scrolled {
   padding: 8px 0;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.4);
 }
 
 .navbar-brand-logo {
@@ -153,16 +151,16 @@ code {
 }
 
 .nav-pill-btn {
-  background: var(--text);
-  color: var(--bg) !important;
+  background: var(--accent);
+  color: #fff !important;
   border-radius: 980px;
   font-weight: 600;
   padding: 8px 18px !important;
 }
 
 .nav-pill-btn:hover {
-  background: #000;
-  color: var(--bg) !important;
+  background: var(--accent-hover);
+  color: #fff !important;
 }
 
 /* ====================== RESPONSIVE ====================== */
@@ -237,7 +235,7 @@ section {
   max-width: 48px;
 }
 
-/* Shared highlight box (used in contributing & privacy) */
+/* Shared highlight box */
 .highlight-box {
   background: var(--bg2);
   border: 1px solid var(--border-soft);
@@ -247,9 +245,7 @@ section {
 }
 
 
-/* ====================== HERO (index.html) ================ */
-
-/* <section class="hero" style="min-height: 85vh; padding-top: 100px;"> */
+/* ====================== HERO ================ */
 
 .hero {
   position: relative;
@@ -257,25 +253,12 @@ section {
   display: flex;
   align-items: center;
   overflow: hidden;
-  /* padding: 160px 0 100px; */
   padding-top: 100px;
   background:
-    radial-gradient(1200px 600px at 15% -10%, #f2f6ff 0%, transparent 60%),
-    radial-gradient(1000px 500px at 100% 10%, #fbfbfd 0%, transparent 60%),
+    radial-gradient(1200px 600px at 15% -10%, rgba(124,132,236,0.08) 0%, transparent 60%),
+    radial-gradient(1000px 500px at 100% 10%, rgba(30,30,40,0.9) 0%, transparent 60%),
     var(--bg);
 }
-/* .hero {
-  position: relative;
-  min-height: 92vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  padding: 160px 0 100px;
-  background:
-    radial-gradient(1200px 600px at 15% -10%, #f2f6ff 0%, transparent 60%),
-    radial-gradient(1000px 500px at 100% 10%, #fbfbfd 0%, transparent 60%),
-    var(--bg);
-} */
 
 .hero-grid-bg {
   position: absolute;
@@ -288,7 +271,7 @@ section {
   position: absolute;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(0, 113, 227, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(124, 132, 236, 0.12) 0%, transparent 70%);
   top: -220px;
   left: -220px;
   pointer-events: none;
@@ -298,7 +281,7 @@ section {
   position: absolute;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(124, 132, 236, 0.06) 0%, transparent 70%);
   bottom: -120px;
   right: -120px;
   pointer-events: none;
@@ -383,7 +366,7 @@ section {
 }
 
 
-/* ====================== FEATURES GRID (index.html) ======= */
+/* ====================== FEATURES GRID ======= */
 
 .feature-card {
   background: var(--bg2);
@@ -394,10 +377,6 @@ section {
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s var(--ease);
   position: relative;
   overflow: hidden;
-}
-
-.feature-card::before {
-  content: none;
 }
 
 .feature-card:hover {
@@ -417,15 +396,6 @@ section {
   justify-content: center;
   margin-bottom: 20px;
   font-size: 1.05rem;
-  color: var(--accent);
-}
-
-.feature-icon.purple,
-.feature-icon.gold,
-.feature-icon.red,
-.feature-icon.blue {
-  background: var(--bg);
-  border-color: var(--border-soft);
   color: var(--accent);
 }
 
@@ -454,7 +424,7 @@ section {
 }
 
 
-/* ====================== KEYBOARD SHORTCUTS (index.html) == */
+/* ====================== KEYBOARD SHORTCUTS =============== */
 
 .shortcuts-section {
   background: var(--bg2);
@@ -513,7 +483,7 @@ kbd-custom {
 }
 
 
-/* ====================== CLI ARGS (index.html) ============= */
+/* ====================== CLI ARGS ============= */
 
 .cli-block {
   background: var(--bg2);
@@ -599,7 +569,7 @@ kbd-custom {
 }
 
 
-/* ====================== CONFIG FILE (index.html) ========= */
+/* ====================== CONFIG FILE ========= */
 
 .config-section {
   background: var(--bg3);
@@ -680,25 +650,26 @@ kbd-custom {
 
 /* RC file display */
 .rc-file-block {
-  background: var(--text);
-  border: 1px solid var(--text);
+  background: #0a0a0a;
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 24px 26px;
   font-family: var(--font-mono);
   font-size: 0.84rem;
   line-height: 2;
   box-shadow: var(--shadow-md);
+  color: #e0e0e0;
 }
 
 .rc-comment  { color: #98989d; }
 .rc-cmd      { color: #7fb8ff; }
-.rc-key      { color: #ffffff; }
+.rc-key      { color: #f0f0f0; }
 .rc-val-str  { color: #98e5b0; }
 .rc-val-bool { color: #ffd479; }
 .rc-val-num  { color: #ffd479; }
 
 
-/* ====================== ARCHITECTURE (index.html) ======== */
+/* ====================== ARCHITECTURE ======== */
 
 .arch-section {
   background: var(--bg2);
@@ -762,7 +733,7 @@ kbd-custom {
 }
 
 
-/* ====================== SCREENSHOTS (index.html) ========= */
+/* ====================== SCREENSHOTS ========= */
 
 .screenshot-section {
   background: var(--bg3);
@@ -803,28 +774,44 @@ kbd-custom {
   display: block;
 }
 
-.screenshot-placeholder.has-img .ph-content {
-  display: none;
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: 56px 32px;
+    margin-top: 48px;
 }
 
-.ph-icon  { font-size: 2rem; color: var(--border); margin-bottom: 12px; }
-.ph-title { color: var(--muted); font-size: 0.82rem; font-weight: 500; margin-bottom: 6px; }
-.ph-hint  { color: var(--muted2); font-size: 0.72rem; }
+.screenshot-item h3 {
+    font-family: var(--font-head);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: var(--text);
+}
 
-.ph-path {
-  font-family: var(--font-mono);
-  color: var(--accent);
-  font-size: 0.72rem;
-  margin-top: 10px;
-  background: var(--accent-soft);
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 4px;
-  border: 1px solid var(--accent-soft-border);
+.screenshot-description {
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.screenshot-placeholder.has-img {
+    padding: 0;
+    min-height: 320px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.35s var(--ease);
+}
+
+.screenshot-placeholder.has-img:hover {
+    border-color: var(--muted2);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
 }
 
 
-/* ====================== INSTALL (index.html) ============= */
+/* ====================== INSTALL ============= */
 
 .install-block {
   background: var(--bg2);
@@ -863,7 +850,7 @@ kbd-custom {
 }
 
 
-/* ====================== DEPENDENCIES (index.html) ======== */
+/* ====================== DEPENDENCIES ======== */
 
 .dep-badge {
   display: inline-block;
@@ -889,7 +876,7 @@ kbd-custom {
 }
 
 
-/* ====================== STATUS TYPES (index.html) ======== */
+/* ====================== STATUS TYPES ======== */
 
 .status-demo {
   border-radius: var(--radius-sm);
@@ -910,160 +897,16 @@ kbd-custom {
 }
 
 .st-normal  { background: var(--bg2); border: 1px solid var(--border-soft); color: var(--text); }
-.st-info    { background: rgba(0, 113, 227, 0.06);  border: 1px solid rgba(0, 113, 227, 0.18);  color: var(--info); }
-.st-success { background: rgba(29, 122, 61, 0.06);  border: 1px solid rgba(29, 122, 61, 0.18);  color: var(--success); }
-.st-warning { background: rgba(150, 110, 0, 0.06);  border: 1px solid rgba(150, 110, 0, 0.18);  color: #8a6d00; }
-.st-error   { background: rgba(215, 0, 21, 0.06); border: 1px solid rgba(215, 0, 21, 0.18); color: var(--danger); }
+.st-info    { background: rgba(100, 210, 255, 0.12);  border: 1px solid rgba(100, 210, 255, 0.3);  color: var(--info); }
+.st-success { background: rgba(48, 209, 88, 0.12);  border: 1px solid rgba(48, 209, 88, 0.3);  color: var(--success); }
+.st-warning { background: rgba(255, 214, 10, 0.12);  border: 1px solid rgba(255, 214, 10, 0.3);  color: #ffd60a; }
+.st-error   { background: rgba(255, 69, 58, 0.12); border: 1px solid rgba(255, 69, 58, 0.3); color: var(--danger); }
 
 .st-dot-info   { background: var(--info); }
 .st-dot-success { background: var(--success); }
-.st-dot-warn   { background: #8a6d00; }
+.st-dot-warn   { background: #ffd60a; }
 .st-dot-error  { background: var(--danger); }
 .st-dot-normal { background: var(--muted); }
-
-
-/* ====================== SIGNATURE (index.html) =========== */
-
-.sig-section {
-  background: var(--bg2);
-}
-
-.sig-field {
-  display: flex;
-  gap: 12px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--border-soft);
-  align-items: flex-start;
-}
-
-.sig-field:last-child {
-  border-bottom: none;
-}
-
-.sig-field-name {
-  font-family: var(--font-mono);
-  color: var(--text);
-  font-size: 0.8rem;
-  width: 160px;
-  flex-shrink: 0;
-}
-
-.sig-field-val {
-  font-family: var(--font-mono);
-  color: var(--accent);
-  font-size: 0.78rem;
-  margin-right: 16px;
-  width: 120px;
-  flex-shrink: 0;
-}
-
-.sig-field-desc {
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-
-
-/* ====================== SERVICE FLOW (index.html) ======== */
-
-.flow-step {
-  background: var(--bg2);
-  border: 1px solid var(--border-soft);
-  border-radius: var(--radius-md);
-  padding: 18px 20px;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.flow-num {
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--accent);
-  flex-shrink: 0;
-  width: 28px;
-}
-
-.flow-title {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 4px;
-}
-
-.flow-desc {
-  font-size: 0.8rem;
-  color: var(--muted);
-}
-
-
-/* ====================== MISC / UTILITIES ================= */
-
-.tag-pill {
-  display: inline-block;
-  border: 1px solid var(--border-soft);
-  border-radius: 980px;
-  padding: 4px 12px;
-  font-size: 0.74rem;
-  color: var(--muted);
-  margin: 2px;
-  background: var(--bg2);
-}
-
-/* Fade-in animation */
-.fade-in {
-  animation: fadeIn 0.7s var(--ease) both;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: none; }
-}
-
-
-/* ====================== FOOTER =========================== */
-
-footer {
-  background: var(--bg2);
-  border-top: 1px solid var(--border-soft);
-  padding: 56px 0;
-}
-
-.footer-brand {
-  font-family: var(--font-head);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text);
-}
-
-.footer-text {
-  color: var(--muted);
-  font-size: 0.8rem;
-  margin-top: 6px;
-}
-
-.footer-link {
-  color: var(--muted);
-  font-size: 0.8rem;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.footer-link:hover {
-  color: var(--text);
-}
-
-.license-badge {
-  display: inline-block;
-  background: var(--bg);
-  border: 1px solid var(--border-soft);
-  border-radius: 980px;
-  padding: 4px 12px;
-  font-size: 0.72rem;
-  color: var(--muted);
-}
-
 
 /* =============================================================================
    CONTRIBUTING PAGE — contributing.html
@@ -1117,8 +960,8 @@ footer {
 }
 
 .content pre {
-  background: var(--text);
-  border: 1px solid var(--text);
+  background: #0a0a0a;
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 20px;
   overflow-x: auto;
@@ -1433,10 +1276,64 @@ table {
   padding: 8px 14px !important;
 }
 
+
+/* ====================== MISC / UTILITIES ================= */
+
+.tag-pill {
+  display: inline-block;
+  border: 1px solid var(--border-soft);
+  border-radius: 980px;
+  padding: 4px 12px;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin: 2px;
+  background: var(--bg2);
+}
+
+.fade-in {
+  animation: fadeIn 0.7s var(--ease) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+
+/* ====================== FOOTER =========================== */
+
+footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border-soft);
+  padding: 56px 0;
+}
+
+.footer-link {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--text);
+}
+
+.license-badge {
+  display: inline-block;
+  background: var(--bg);
+  border: 1px solid var(--border-soft);
+  border-radius: 980px;
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+
 /* ====================== DROPDOWN ====================== */
 
 .custom-dropdown {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(26, 26, 28, 0.95);
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-md);
   padding: 10px;
@@ -1452,18 +1349,12 @@ table {
   border-radius: 8px;
   font-size: 0.84rem;
   padding: 10px 12px;
-  transition:
-    background 0.2s,
-    color 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
 .custom-dropdown .dropdown-item:hover {
   background: var(--bg2);
   color: var(--text);
-}
-
-.custom-dropdown .dropdown-divider {
-  border-color: var(--border-soft);
 }
 
 /* ====================== MOBILE ====================== */
