@@ -771,7 +771,7 @@
             </tr>
             <tr>
               <td><span class="config-key">tabbehavior</span></td>
-              <td><span class="config-val">indent | ...</span></td>
+              <td><span class="config-val">focus | indent</span></td>
               <td><span class="config-desc">Tab key behavior in editor.</span></td>
             </tr>
             <tr>
@@ -1014,42 +1014,106 @@
         <div class="divider-line"></div>
         <h2 class="section-title">Get Started with SuperNanno</h2>
         <p class="section-desc">
-            Install SuperNanno using the included <code>dev.sh</code> script or via <strong>pipx</strong> (recommended for production use).
+            Install SuperNanno using the included <code>install.sh</code> script or via <strong>pipx</strong> (recommended for production use).
         </p>
 
         <div class="row g-5">
 
           <!-- Option 1: One-liner curl (Fastest) -->
-          <div class="col-lg-4">
-              <h5 style="color:var(--accent);font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px">
-                  <i class="fa fa-bolt"></i> Quick Install (One-liner)
-              </h5>
-              <div class="install-block">
-                  <button class="copy-btn" onclick="copyText(this, 'curl -sSL https://raw.githubusercontent.com/hbisneto/SuperNanno/refs/heads/main/install.sh | bash')">copy</button>
-                  <div><span class="prompt">$</span><span class="cmd"> curl -sSL https://raw.githubusercontent.com/hbisneto/SuperNanno/refs/heads/main/install.sh | bash</span></div>
-              </div>
-              <p class="mt-3" style="color:var(--muted);font-size:0.9rem;">
-                  Easiest way. Installs via pipx automatically.
-              </p>
-          </div>
+          <div class="col-lg-6">
+            <h5 style="color:var(--accent);font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px">
+              <i class="fa fa-rocket"></i> Quick Installation (Recommended)
+            </h5>
 
-            <!-- Option 1: pipx (Recommended) -->
-            <div class="col-lg-6">
-                <h5 style="color:var(--accent);font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px">
-                    <i class="fa fa-rocket"></i> Global Installation (Recommended)
-                </h5>
-                <div class="install-block">
-                    <button class="copy-btn" onclick="copyText(this, 'pipx install supernanno')">copy</button>
-                    <div><span class="prompt">$</span><span class="cmd"> pipx install supernanno</span></div>
-                </div>
-                <p class="mt-3" style="color:var(--muted);font-size:0.9rem;">
-                    After installation, you can run:
-                </p>
-                <div class="install-block mt-2">
-                    <div><span class="prompt">$</span><span class="cmd"> supernanno</span></div>
-                    <div><span class="prompt">$</span><span class="cmd"> supernanno myfile.py</span></div>
+            <p style="color:var(--muted);margin-bottom:20px;">
+            Install SuperNanno globally using <strong>pipx</strong>.
+            If this is your first time installing <code>pipx</code>, you may need to reload your shell before continuing.
+            </p>
+
+            <h6 style="color:var(--accent);margin-bottom:12px;">Curl Instalattion</h6>
+            <div class="install-block">
+                <button class="copy-btn" onclick="copyText(this, 'curl -fsSLO https://raw.githubusercontent.com/hbisneto/SuperNanno/refs/heads/main/install.sh\nbash install.sh\nrm install.sh')">
+                  copy
+                </button>
+                <div>
+                <span class="prompt">$</span><span class="cmd">
+                curl -fsSLO https://raw.githubusercontent.com/hbisneto/SuperNanno/refs/heads/main/install.sh
+                <br><br>bash install.sh
+                <br><br>rm install.sh
+              </span></div>
+            </div>
+            <br>
+            <br>
+            <hr>
+            
+            
+            <h5 style="color:var(--accent);font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px">
+              <i class="fa fa-rocket"></i> Manual Installation (pipx)
+            </h5>
+
+            <p style="color:var(--muted);margin-bottom:20px;">
+            Install SuperNanno globally using <strong>pipx</strong>.
+            If this is your first time installing <code>pipx</code>, you may need to reload your shell before continuing.
+            </p>
+            <h6 style="color:var(--accent);margin-bottom:12px;">Step 1 — Install pipx</h6>
+            <div class="install-block">
+                <button class="copy-btn"
+                    onclick="copyText(this, 'python3 -m pip install --user pipx\npython3 -m pipx ensurepath')">
+                    copy
+                </button>
+
+                <div>
+                    <span class="prompt">$</span>
+                    <span class="cmd">
+                        python3 -m pip install --user pipx
+                        <br>
+                        python3 -m pipx ensurepath
+                    </span>
                 </div>
             </div>
+
+            <div class="alert alert-warning mt-3"
+                style="background:#3b2d00;border:1px solid #8f6a00;color:#ffd86b;padding:14px;border-radius:8px;">
+                <strong>Important</strong><br>
+                After running <code>ensurepath</code>, restart your terminal or reload your shell.
+            </div>
+
+            <h6 style="color:var(--accent);margin-top:24px;margin-bottom:12px;">
+            Step 2 — Reload your shell
+            </h6>
+
+            <div class="install-block">
+            <div><span class="prompt">$</span><span class="cmd">source ~/.bashrc</span></div>
+            <div><span class="prompt">$</span><span class="cmd">source ~/.zshrc</span></div>
+            </div>
+
+            <p style="color:var(--muted);margin-top:12px;">
+            If you're unsure which shell you're using, simply close the terminal and open it again.
+            </p>
+
+            <h6 style="color:var(--accent);margin-top:24px;margin-bottom:12px;">
+            Step 3 — Install SuperNanno
+            </h6>
+
+            <div class="install-block">
+            <button class="copy-btn"
+            onclick="copyText(this, 'pipx install supernanno')">copy</button>
+
+            <div>
+            <span class="prompt">$</span>
+            <span class="cmd">pipx install supernanno</span>
+            </div>
+            </div>
+
+            <h6 style="color:var(--accent);margin-top:24px;margin-bottom:12px;">
+            Step 4 — Launch
+            </h6>
+
+            <div class="install-block">
+            <div><span class="prompt">$</span><span class="cmd">supernanno</span></div>
+            <div><span class="prompt">$</span><span class="cmd">supernanno myfile.py</span></div>
+            </div>
+          </div>
 
             <!-- Option 2: Development -->
             <div class="col-lg-6">

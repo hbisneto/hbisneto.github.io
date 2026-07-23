@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NannoKit.Dialogs — Dialogs for SuperNanno & Textual</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="../style.css" rel="stylesheet"/>
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="NannoKit.Dialogs — Modern Dialogs for Textual" />
+  <meta property="og:description" content="File dialogs (OpenFile, SaveFile, OpenFolder) + MessageBox with priority isolation for SuperNanno and any Textual app." />
+  <meta property="og:image" content="https://hbisneto.github.io/supernanno/og-image.png" />
+  <meta property="og:url" content="https://hbisneto.github.io/nannokit-dialogs/" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NannoKit.Dialogs" />
+  <meta name="twitter:description" content="High-quality dialogs for Textual applications" />
+  <meta name="twitter:creator" content="@BisnetoDev" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-xl navbar-custom">
+    <div class="container">
+      <a class="navbar-brand-logo text-decoration-none" href="#">
+        NannoKit<span>.Dialogs</span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="fa fa-bars" style="color: var(--accent); font-size: 1.45rem;"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav ms-auto d-flex align-items-center gap-1">
+          <a class="nav-link-custom" href="#features">Features</a>
+          <a class="nav-link-custom" href="#quickstart">Quick Start</a>
+          <a class="nav-link-custom" href="#api">API</a>
+          <a class="nav-link-custom" href="#isolation">Isolation</a>
+          <a class="nav-link-custom" href="https://github.com/hbisneto/SuperNanno/tree/main/NannoKit.Dialogs" target="_blank">
+            <i class="fa-brands fa-github me-1"></i>GitHub
+          </a>
+          <a class="nav-link-custom nav-pill-btn" href="#install">
+            <i class="fa fa-download me-1"></i>Install
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 fade-in">
+          <div class="hero-badge">✦ Official Dialogs Extension · Textual</div>
+          <h1 class="hero-title">
+            NannoKit<span class="accent">.Dialogs</span>
+          </h1>
+          <p style="font-family:var(--font-head);font-size:1.2rem;color:var(--muted);margin-bottom:18px;font-weight:600;letter-spacing:-0.5px;">
+            Modern file &amp; message dialogs for SuperNanno and any Textual app.
+          </p>
+          <p class="hero-subtitle">
+            Clean, priority-aware dialogs with <strong style="color:var(--text)">OpenFile</strong>, 
+            <strong style="color:var(--text)">SaveFile</strong>, <strong style="color:var(--text)">OpenFolder</strong> 
+            and <strong style="color:var(--text)">messagebox</strong>. Full keyboard + mouse support.
+          </p>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="#install" class="btn-hero-primary">
+              <i class="fa fa-download me-2"></i>pip install nannokit-dialogs
+            </a>
+            <a href="#quickstart" class="btn-hero-secondary">See Examples →</a>
+          </div>
+          <div class="mt-4 d-flex gap-3 flex-wrap">
+            <span class="tag-pill"><i class="fa fa-code me-1"></i> Textual 8.2+</span>
+            <span class="tag-pill">Python 3.10+</span>
+            <span class="tag-pill">BSD-3-Clause</span>
+          </div>
+        </div>
+        <div class="col-lg-6 fade-in" style="animation-delay:.15s"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
+      <div class="section-label">Features</div>
+      <div class="divider-line"></div>
+      <h2 class="section-title">Dialogs that just work</h2>
+      <p class="section-desc">Built for SuperNanno with seamless integration into any Textual application.</p>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa fa-folder-open"></i></div>
+            <div class="feature-title">OpenFile &amp; OpenFolder</div>
+            <div class="feature-desc">Multiselect, filters, hidden files toggle, path input and validation.</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa fa-floppy-disk"></i></div>
+            <div class="feature-title">SaveFile</div>
+            <div class="feature-desc">Overwrite confirmation with smart priority handling.</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa fa-message"></i></div>
+            <div class="feature-title">messagebox</div>
+            <div class="feature-desc">Flexible YES/NO/CANCEL, types (INFO/WARNING/ERROR) and callbacks.</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa fa-layer-group"></i></div>
+            <div class="feature-title">Priority Isolation</div>
+            <div class="feature-desc">messagebox and filedialogs never silently interrupt each other.</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa fa-keyboard"></i></div>
+            <div class="feature-title">Full Keyboard Support</div>
+            <div class="feature-desc">Escape to cancel, Enter to confirm, M to multiselect.</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa fa-plug"></i></div>
+            <div class="feature-title">Zero-config Integration</div>
+            <div class="feature-desc">Automatic App detection or explicit attach with DialogManager.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK START -->
+  <section id="quickstart" style="background:var(--bg2)">
+    <div class="container">
+      <div class="section-label">Quick Start</div>
+      <div class="divider-line"></div>
+      <h2 class="section-title">Get up and running in seconds</h2>
+
+      <div class="cli-block">
+        <div class="cli-header">Installation</div>
+        <div class="cli-body">
+          <button class="copy-btn" onclick="copyText(this, 'pip install nannokit-dialogs')">copy</button>
+          <div><span class="prompt">$</span><span class="cmd"> pip install nannokit-dialogs</span></div>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-4">
+        <div class="col-lg-6">
+          <h5>Example: File Dialogs</h5>
+          <pre style="background:#0a0a0a;color:#a1a1a6;padding:1.2rem;border-radius:12px;font-size:0.85rem;overflow-x:auto;">from nannokit.dialogs import OpenFile, SaveFile, OpenFolder
+
+OpenFile.show(
+    initial_directory=".",
+    filters=["*.py", "*.toml"],
+    callback=lambda p: print("Selected:", p)
+)
+
+SaveFile.show(default_filename="config.toml", callback=...) </pre>
+        </div>
+        <div class="col-lg-6">
+          <h5>Example: MessageBox</h5>
+          <pre style="background:#0a0a0a;color:#a1a1a6;padding:1.2rem;border-radius:12px;font-size:0.85rem;overflow-x:auto;">from nannokit.dialogs import messagebox
+
+messagebox.show(
+    "Save changes before closing?",
+    buttons=messagebox.buttons.YES_NO_CANCEL,
+    type=messagebox.type.WARNING,
+    callback=...
+)</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISOLATION -->
+  <section id="isolation">
+    <div class="container">
+      <div class="section-label">Priority Isolation</div>
+      <div class="divider-line"></div>
+      <h2 class="section-title">Dialogs that respect each other</h2>
+      <p class="section-desc">Thanks to <code>DialogQueue</code> and priority tiers, no dialog can silently interrupt another.</p>
+      <!-- Tabela de prioridades aqui se quiser -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="navbar-brand-logo text-decoration-none" style="font-family: var(--font-head); font-weight: 800; font-size: 1.3rem; color: var(--accent);">
+            NannoKit<span>.Dialogs</span>
+          </div>
+          <div class="footer-text mt-1">Part of the SuperNanno ecosystem.</div>
+          <div class="mt-2">
+            <span class="license-badge">BSD-3-Clause License</span>
+            <span class="ms-2" style="color:var(--muted);font-size:0.72rem">© 2026 Heitor Bardemaker A. Bisneto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copyText(btn, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'copied!';
+        btn.style.color = 'var(--accent)';
+        setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 2000);
+      });
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
